@@ -14,8 +14,12 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-       // tableView.dequeueReusableCell(withIdentifier: <#T##String#>)
+        //return UITableViewCell()
+        guard let movieCell = tableView.dequeueReusableCell(withIdentifier: MoviesItemTableViewCell.reuseIdentifier)
+            else {
+            return UITableViewCell()
+        }
+        return movieCell
     }
     
     @IBOutlet weak var moviesListTableView: UITableView!
@@ -24,6 +28,7 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
+        moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
         
 
         
