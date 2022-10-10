@@ -99,13 +99,11 @@
 		CE056CDA28EE4B2E00598603 /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
-				CE056CDB28EE4B2E00598603 /* AppDelegate.swift */,
-				CE056CDD28EE4B2E00598603 /* SceneDelegate.swift */,
+				CE77173F28F4D7C8007A5FC2 /* Resources */,
+				CE77173E28F4D793007A5FC2 /* Application */,
+				CE77173A28F4D6F1007A5FC2 /* Presentation */,
 				CE056CDF28EE4B2E00598603 /* ViewController.swift */,
 				CE056CE128EE4B2E00598603 /* Main.storyboard */,
-				CE056CE428EE4B3400598603 /* Assets.xcassets */,
-				CE056CE628EE4B3400598603 /* LaunchScreen.storyboard */,
-				CE056CE928EE4B3400598603 /* Info.plist */,
 			);
 			path = MoviesApp;
 			sourceTree = "<group>";
@@ -125,6 +123,56 @@
 				CE056CFE28EE4B3400598603 /* MoviesAppUITestsLaunchTests.swift */,
 			);
 			path = MoviesAppUITests;
+			sourceTree = "<group>";
+		};
+		CE77173A28F4D6F1007A5FC2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CE77173B28F4D709007A5FC2 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CE77173B28F4D709007A5FC2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CE77173C28F4D723007A5FC2 /* MoviesList */,
+				CE77173D28F4D73A007A5FC2 /* MovieDetails */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CE77173C28F4D723007A5FC2 /* MoviesList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MoviesList;
+			sourceTree = "<group>";
+		};
+		CE77173D28F4D73A007A5FC2 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
+		CE77173E28F4D793007A5FC2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CE056CDB28EE4B2E00598603 /* AppDelegate.swift */,
+				CE056CDD28EE4B2E00598603 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CE77173F28F4D7C8007A5FC2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CE056CE428EE4B3400598603 /* Assets.xcassets */,
+				CE056CE628EE4B3400598603 /* LaunchScreen.storyboard */,
+				CE056CE928EE4B3400598603 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,7 +489,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DUQQTRL9PD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoviesApp/Info.plist;
+				INFOPLIST_FILE = MoviesApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -469,7 +517,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DUQQTRL9PD;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MoviesApp/Info.plist;
+				INFOPLIST_FILE = MoviesApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
