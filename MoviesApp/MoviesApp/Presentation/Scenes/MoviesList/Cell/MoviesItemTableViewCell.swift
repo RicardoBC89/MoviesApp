@@ -9,6 +9,12 @@ import UIKit
 
 class MoviesItemTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var movieAno: UILabel!
+    @IBOutlet weak var movieTitulo: UILabel!
+    func adicionarInformacaoMovie (titulo: String, ano: Int) {
+        movieTitulo.text = titulo
+        movieAno.text = String(ano)
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
