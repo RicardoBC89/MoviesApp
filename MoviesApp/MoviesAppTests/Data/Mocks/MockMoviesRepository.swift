@@ -1,7 +1,7 @@
 @testable import MoviesApp
 
 class MockMoviesRepository: MoviesRepositoryProtocol {
-    let mockMovies: [Movie] = []
+    var mockMovies: [Movie] = []
     
     func getMovies() -> [Movie] {
         mockMovies
