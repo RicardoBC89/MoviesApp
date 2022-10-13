@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE03D07F28F8569500FD66E9 /* MoviesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03D07E28F8569500FD66E9 /* MoviesRepositoryProtocol.swift */; };
+		CE03D08328F8574100FD66E9 /* MockMoviesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03D08228F8574100FD66E9 /* MockMoviesRepository.swift */; };
 		CE056CDC28EE4B2E00598603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE056CDB28EE4B2E00598603 /* AppDelegate.swift */; };
 		CE056CDE28EE4B2E00598603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE056CDD28EE4B2E00598603 /* SceneDelegate.swift */; };
 		CE056CE528EE4B3400598603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE056CE428EE4B3400598603 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE03D07E28F8569500FD66E9 /* MoviesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRepositoryProtocol.swift; sourceTree = "<group>"; };
+		CE03D08228F8574100FD66E9 /* MockMoviesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesRepository.swift; sourceTree = "<group>"; };
 		CE056CD828EE4B2D00598603 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE056CDB28EE4B2E00598603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE056CDD28EE4B2E00598603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE03D07D28F8565400FD66E9 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CE03D07E28F8569500FD66E9 /* MoviesRepositoryProtocol.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CE03D08028F8571200FD66E9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CE03D08128F8571E00FD66E9 /* Mocks */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CE03D08128F8571E00FD66E9 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				CE03D08228F8574100FD66E9 /* MockMoviesRepository.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		CE056CCF28EE4B2D00598603 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +158,7 @@
 		CE056CF128EE4B3400598603 /* MoviesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE03D08028F8571200FD66E9 /* Data */,
 				CE056CF228EE4B3400598603 /* MoviesAppTests.swift */,
 			);
 			path = MoviesAppTests;
@@ -261,6 +290,7 @@
 		CED06A1728F632B700F73255 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CE03D07D28F8565400FD66E9 /* Repositories */,
 				CED06A1828F632CC00F73255 /* Model */,
 			);
 			path = Domain;
@@ -408,6 +438,7 @@
 			files = (
 				CED06A1E28F63C9800F73255 /* Observable.swift in Sources */,
 				CE0BDAF628F703B300BF24EA /* MoviesRemoteDataSource.swift in Sources */,
+				CE03D07F28F8569500FD66E9 /* MoviesRepositoryProtocol.swift in Sources */,
 				CE0BDAFB28F703E900BF24EA /* MoviesRepository.swift in Sources */,
 				CE0BDAF928F703CE00BF24EA /* MoviesCacheDataSource.swift in Sources */,
 				CE056CDC28EE4B2E00598603 /* AppDelegate.swift in Sources */,
@@ -424,6 +455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE03D08328F8574100FD66E9 /* MockMoviesRepository.swift in Sources */,
 				CE056CF328EE4B3400598603 /* MoviesAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

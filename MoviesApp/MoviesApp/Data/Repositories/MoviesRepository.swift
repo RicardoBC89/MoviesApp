@@ -1,4 +1,6 @@
-class MoviesRepository {
+
+
+class MoviesRepository: MoviesRepositoryProtocol {
     let rds = MoviesRemoteDataSource()
     let cds = MoviesCacheDataSource()
     
