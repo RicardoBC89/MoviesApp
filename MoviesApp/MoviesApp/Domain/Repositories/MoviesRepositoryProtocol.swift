@@ -1,4 +1,4 @@
 
 protocol MoviesRepositoryProtocol {
-    func getMovies() -> [Movie]
+    func getMovies(completionHandler: ([Movie]) -> Void)
 }

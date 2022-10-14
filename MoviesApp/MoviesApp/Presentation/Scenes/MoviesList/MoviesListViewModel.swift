@@ -1,12 +1,16 @@
 final class MoviesListViewModel {
 
     var movies: Observable<[Movie]> = Observable([])
-    let moviesRepository: MoviesRepositoryProtocol
+    private let moviesRepository: MoviesRepositoryProtocol
     init(repository: MoviesRepositoryProtocol = MoviesRepository()) {
         self.moviesRepository = repository
     }
     
-    func getMovies() {
-        movies.value = moviesRepository.getMovies()
+    func fetchMovies() {
+        moviesRepository.getMovies(completionHandler: atualizaLista)
+    }
+    
+    func atualizaLista(movies: [Movie]) {
+        self.movies.value = movies
     }
 }

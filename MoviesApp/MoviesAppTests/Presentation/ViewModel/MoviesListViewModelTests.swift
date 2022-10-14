@@ -32,7 +32,7 @@ final class MoviesListViewModelTests: XCTestCase {
         mockRepository.mockMovies = movies
         
         //Execute
-        viewModel.getMovies()
+        viewModel.fetchMovies()
 
         //Assert
         XCTAssertEqual(viewModel.movies.value.count, 3)

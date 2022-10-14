@@ -3,9 +3,7 @@
 class MockMoviesRepository: MoviesRepositoryProtocol {
     var mockMovies: [Movie] = []
     
-    func getMovies() -> [Movie] {
-        mockMovies
+    func getMovies(completionHandler: ([Movie]) -> Void) {
+        completionHandler(mockMovies)
     }
-    
-
 }

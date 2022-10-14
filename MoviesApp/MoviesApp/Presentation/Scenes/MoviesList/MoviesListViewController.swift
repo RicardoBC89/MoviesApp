@@ -27,7 +27,7 @@ final class MoviesListViewController: UIViewController {
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
         moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
-        viewModel.getMovies()
+        viewModel.fetchMovies()
         viewModel.movies.observe(on: self) { movies in
             self.moviesListTableView.reloadData()
         }
