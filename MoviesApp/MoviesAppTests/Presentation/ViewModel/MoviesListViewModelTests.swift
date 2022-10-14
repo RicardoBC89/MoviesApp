@@ -8,7 +8,7 @@
 import XCTest
 @testable import MoviesApp
 
-class MoviesListViewModelTests: XCTestCase {
+final class MoviesListViewModelTests: XCTestCase {
 
     var viewModel: MoviesListViewModel!
     var mockRepository: MockMoviesRepository!
@@ -33,12 +33,11 @@ class MoviesListViewModelTests: XCTestCase {
         
         //Execute
         viewModel.getMovies()
+
         //Assert
         XCTAssertEqual(viewModel.movies.value.count, 3)
-        
         XCTAssertEqual(viewModel.movies.value, movies)
     }
-
 }
 
 extension Movie: Equatable {
@@ -46,6 +45,4 @@ extension Movie: Equatable {
         lhs.titulo == rhs.titulo &&
         lhs.ano == rhs.ano
     }
-    
-    
 }

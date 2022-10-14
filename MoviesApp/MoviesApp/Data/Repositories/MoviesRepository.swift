@@ -8,4 +8,3 @@ final class MoviesRepository: MoviesRepositoryProtocol {
         return rds.getMovies()
     }
 }
-
