@@ -7,13 +7,13 @@
 
 import UIKit
 
-class MoviesListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+final class MoviesListViewController: UIViewController {
     
     @IBOutlet weak var moviesListTableView: UITableView!
     
-    var viewModel: MoviesListViewModel
+    private let viewModel: MoviesListViewModel
     
-    init( viewModel: MoviesListViewModel) {
+    init(viewModel: MoviesListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -21,6 +21,7 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         moviesListTableView.delegate = self
@@ -30,37 +31,20 @@ class MoviesListViewController: UIViewController, UITableViewDataSource, UITable
         viewModel.movies.observe(on: self) { movies in
             self.moviesListTableView.reloadData()
         }
-      
     }
-    
-    
+}
+
+extension MoviesListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.movies.value.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //return UITableViewCell()
         guard let movieCell = tableView.dequeueReusableCell(withIdentifier: MoviesItemTableViewCell.reuseIdentifier) as? MoviesItemTableViewCell else {
             return UITableViewCell()
         }
         let movieAtual = viewModel.movies.value[indexPath.row]
-        
         movieCell.adicionarInformacaoMovie(titulo: movieAtual.titulo, ano: movieAtual.ano)
         return movieCell
-        
     }
-    
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

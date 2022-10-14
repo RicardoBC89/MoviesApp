@@ -1,4 +1,6 @@
-class MoviesRepository {
+
+
+final class MoviesRepository: MoviesRepositoryProtocol {
     let rds = MoviesRemoteDataSource()
     let cds = MoviesCacheDataSource()
     
@@ -6,4 +8,3 @@ class MoviesRepository {
         return rds.getMovies()
     }
 }
-
