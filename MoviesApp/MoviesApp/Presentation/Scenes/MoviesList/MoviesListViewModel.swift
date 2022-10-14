@@ -7,10 +7,8 @@ final class MoviesListViewModel {
     }
     
     func fetchMovies() {
-        moviesRepository.getMovies(completionHandler: atualizaLista)
-    }
-    
-    func atualizaLista(movies: [Movie]) {
-        self.movies.value = movies
+        moviesRepository.getMovies { [weak self] movies in
+            self?.movies.value = movies
+        }
     }
 }
