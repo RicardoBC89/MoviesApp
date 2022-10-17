@@ -1,7 +1,12 @@
 
 import Foundation
 
-struct Movie {
+struct Movie: Decodable {
     var titulo: String
-    var ano: Int
+    var ano: String
+    enum CodingKeys: String, CodingKey {
+        case titulo = "title"
+        case ano = "release_date"
+    }
 }
+

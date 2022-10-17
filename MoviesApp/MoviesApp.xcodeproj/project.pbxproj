@@ -28,6 +28,7 @@
 		CED06A1C28F6380200F73255 /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1B28F6380200F73255 /* MoviesListViewModel.swift */; };
 		CED06A1E28F63C9800F73255 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1D28F63C9800F73255 /* Observable.swift */; };
 		CED11CBD28F85D73002690F9 /* MoviesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED11CBC28F85D73002690F9 /* MoviesListViewModelTests.swift */; };
+		CEE99A6D28FD7FF5001A3497 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE99A6C28FD7FF5001A3497 /* MovieResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		CED06A1B28F6380200F73255 /* MoviesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModel.swift; sourceTree = "<group>"; };
 		CED06A1D28F63C9800F73255 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CED11CBC28F85D73002690F9 /* MoviesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewModelTests.swift; sourceTree = "<group>"; };
+		CEE99A6C28FD7FF5001A3497 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 		CE1EF46728F9AA1B004D3024 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				CEE99A6B28FD7FD5001A3497 /* Model */,
 				CE1EF46828F9AA56004D3024 /* NetworkService.swift */,
 			);
 			path = Networking;
@@ -321,6 +324,14 @@
 				CED11CBC28F85D73002690F9 /* MoviesListViewModelTests.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CEE99A6B28FD7FD5001A3497 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CEE99A6C28FD7FF5001A3497 /* MovieResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,6 +473,7 @@
 				CE0BDAF928F703CE00BF24EA /* MoviesCacheDataSource.swift in Sources */,
 				CE056CDC28EE4B2E00598603 /* AppDelegate.swift in Sources */,
 				CE77174528F4DED3007A5FC2 /* NibLoadable.swift in Sources */,
+				CEE99A6D28FD7FF5001A3497 /* MovieResponse.swift in Sources */,
 				CED06A1A28F632F700F73255 /* Movie.swift in Sources */,
 				CE056CDE28EE4B2E00598603 /* SceneDelegate.swift in Sources */,
 				CED06A1C28F6380200F73255 /* MoviesListViewModel.swift in Sources */,

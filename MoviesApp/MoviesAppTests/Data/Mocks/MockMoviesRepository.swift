@@ -3,7 +3,7 @@
 class MockMoviesRepository: MoviesRepositoryProtocol {
     var mockMovies: [Movie] = []
     
-    func getMovies(completionHandler: ([Movie]) -> Void) {
+    func getMovies(completionHandler: @escaping ([Movie]) -> Void) {
         completionHandler(mockMovies)
     }
 }

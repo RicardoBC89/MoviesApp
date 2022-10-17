@@ -11,7 +11,7 @@ class MoviesItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieAno: UILabel!
     @IBOutlet weak var movieTitulo: UILabel!
-    func adicionarInformacaoMovie (titulo: String, ano: Int) {
+    func adicionarInformacaoMovie (titulo: String, ano: String) {
         movieTitulo.text = titulo
         movieAno.text = String(ano)
     }
