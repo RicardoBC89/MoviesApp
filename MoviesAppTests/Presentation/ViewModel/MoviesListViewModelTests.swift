@@ -22,12 +22,12 @@ final class MoviesListViewModelTests: XCTestCase {
     override func tearDown()  {
         super.tearDown()
     }
-
+    
     func testIfMoviesAreLoaded()  {
         //Prepare
-        let movie1 = Movie(titulo: "Superman", ano: 2020)
-        let movie2 = Movie(titulo: "Batman", ano: 2018)
-        let movie3 = Movie(titulo: "Aquaman", ano: 2022)
+        let movie1 = Movie(titulo: "Superman", ano: "2020", caminhoIMG: "")
+        let movie2 = Movie(titulo: "Batman", ano: "2018", caminhoIMG: "")
+        let movie3 = Movie(titulo: "Aquaman", ano: "2022", caminhoIMG: "")
         let movies = [movie1, movie2, movie3]
         mockRepository.mockMovies = movies
         

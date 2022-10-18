@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titulo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edz-TG-zIc">
-                        <rect key="frame" x="140" y="10" width="151" height="20.5"/>
+                        <rect key="frame" x="130" y="10" width="161" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -28,14 +28,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-xk-cTT">
-                        <rect key="frame" x="20" y="10" width="100" height="150"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="er0-xe-Rd4"/>
-                            <constraint firstAttribute="height" constant="150" id="yUj-i5-HBf"/>
-                        </constraints>
-                    </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5VV-LL-yED">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5VV-LL-yED">
                         <rect key="frame" x="20" y="10" width="100" height="150"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="6So-q4-0uw"/>
@@ -44,15 +37,15 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="edz-TG-zIc" firstAttribute="leading" secondItem="dA6-xk-cTT" secondAttribute="trailing" constant="20" id="0iI-vi-V5C"/>
+                    <constraint firstItem="5VV-LL-yED" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="53A-Q2-tGd"/>
+                    <constraint firstItem="edz-TG-zIc" firstAttribute="leading" secondItem="5VV-LL-yED" secondAttribute="trailing" constant="10" id="GBw-a5-5YH"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="edz-TG-zIc" secondAttribute="bottom" constant="10" id="MUG-Vu-rf1"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dA6-xk-cTT" secondAttribute="bottom" constant="10" id="dIg-BI-6Gu"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5VV-LL-yED" secondAttribute="bottom" constant="10" id="c3z-uc-WLJ"/>
                     <constraint firstItem="4ti-lQ-x7J" firstAttribute="leading" secondItem="edz-TG-zIc" secondAttribute="trailing" constant="5" id="dcI-Im-SvN"/>
+                    <constraint firstItem="5VV-LL-yED" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ktm-dt-dqf"/>
                     <constraint firstItem="edz-TG-zIc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="sAI-fW-83p"/>
                     <constraint firstAttribute="trailing" secondItem="4ti-lQ-x7J" secondAttribute="trailing" constant="20" id="uiS-DJ-Wej"/>
-                    <constraint firstItem="dA6-xk-cTT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="w7S-76-9ub"/>
                     <constraint firstItem="4ti-lQ-x7J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="wzy-rx-nPl"/>
-                    <constraint firstItem="dA6-xk-cTT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="x69-N4-fhl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
