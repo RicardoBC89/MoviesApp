@@ -45,7 +45,7 @@ final class MoviesListViewModelTests: XCTestCase {
         let expectation = expectation(description: "Wait for movies update")
         
         //Execute
-        viewModel.fetchMovies(pagina: 1) { movies in
+        viewModel.fetchMovies(pagina: 1) {
             expectation.fulfill()
         }
         
@@ -62,7 +62,7 @@ final class MoviesListViewModelTests: XCTestCase {
         let exp = expectation(description: "Wait movie update")
         
         //Execute
-        viewModel.fetchMovies(pagina: 1) { movies in
+        viewModel.fetchMovies(pagina: 1) {
             exp.fulfill()
         }
         waitForExpectations(timeout: 5, handler: nil)
@@ -72,7 +72,7 @@ final class MoviesListViewModelTests: XCTestCase {
         let exp2 = expectation(description: "Wait for Page update")
         
         //Execute
-        viewModel.nextPage() { movies in
+        viewModel.nextPage() {
             exp2.fulfill()
         }
         
