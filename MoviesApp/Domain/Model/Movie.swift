@@ -12,3 +12,8 @@ struct Movie: Decodable {
     }
 }
 
+struct MoviePage {
+    let page: Int
+    let totalPage: Int
+    let moviesPageArray: [Movie]
+}
