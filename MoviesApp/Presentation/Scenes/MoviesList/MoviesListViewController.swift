@@ -12,6 +12,7 @@ final class MoviesListViewController: UIViewController {
     @IBOutlet weak var moviesListTableView: UITableView!
     
     private let viewModel: MoviesListViewModel
+    var paginaAtual: Int = 1
     
     init(viewModel: MoviesListViewModel) {
         self.viewModel = viewModel
@@ -27,7 +28,7 @@ final class MoviesListViewController: UIViewController {
         moviesListTableView.delegate = self
         moviesListTableView.dataSource = self
         moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
-        viewModel.fetchMovies()
+        viewModel.fetchMovies(pagina: 1)
         viewModel.movies.observe(on: self) { movies in
             self.moviesListTableView.reloadData()
         }
@@ -45,6 +46,10 @@ extension MoviesListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let movieAtual = viewModel.movies.value[indexPath.row]
         movieCell.adicionarInformacaoMovie(titulo: movieAtual.titulo, ano: movieAtual.ano, caminhoIMG: movieAtual.caminhoIMG)
+        if indexPath.row == viewModel.movies.value.count - 5 {
+            paginaAtual += 1
+            viewModel.fetchMovies(pagina: paginaAtual)
+        }
         return movieCell
     }
 }

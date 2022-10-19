@@ -6,9 +6,9 @@ final class MoviesListViewModel {
         self.moviesRepository = repository
     }
     
-    func fetchMovies() {
-        moviesRepository.getMovies { [weak self] movies in
-            self?.movies.value = movies
+    func fetchMovies(pagina: Int) {
+        moviesRepository.getMovies(pagina: pagina) { [weak self] movies in
+            self?.movies.value += movies
         }
     }
 }

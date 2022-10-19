@@ -1,8 +1,8 @@
 import Foundation
 import Kingfisher
 final class NetworkService {
-    func getMovies(completionHandler: @escaping ([Movie]) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3a3236cd08291ebde30c78c625a5f9c2&language=en-US&page=1") else {
+    func getMovies(pagina: Int, completionHandler: @escaping ([Movie]) -> Void) {
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3a3236cd08291ebde30c78c625a5f9c2&language=en-US&page=\(pagina)") else {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { data, response, error in

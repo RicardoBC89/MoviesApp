@@ -1,6 +1,6 @@
 final class MoviesRemoteDataSource {
     private let service = NetworkService()
-    func getMovies(completionHandler: @escaping([Movie]) -> Void) {
-        service.getMovies(completionHandler: completionHandler)
+    func getMovies(pagina: Int, completionHandler: @escaping([Movie]) -> Void) {
+        service.getMovies(pagina: pagina, completionHandler: completionHandler)
     }
 }
