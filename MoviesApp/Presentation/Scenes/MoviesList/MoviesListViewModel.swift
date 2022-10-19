@@ -8,14 +8,15 @@ final class MoviesListViewModel {
         self.moviesRepository = repository
     }
     
-    func fetchMovies(pagina: Int) {
+    func fetchMovies(pagina: Int, completionHandler: (([Movie]) -> Void)? = nil) {
         moviesRepository.getMovies(pagina: pagina) { [weak self] movies in
             self?.movies.value += movies
+            completionHandler?(movies)
         }
     }
     
-    func nextPage() {
+    func nextPage(completionHandler: (([Movie]) -> Void)? = nil) {
         paginaAtual += 1
-        fetchMovies(pagina: paginaAtual)
+        fetchMovies(pagina: paginaAtual, completionHandler: completionHandler)
     }
 }
