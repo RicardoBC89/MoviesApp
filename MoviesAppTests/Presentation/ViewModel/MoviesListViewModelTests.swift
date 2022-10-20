@@ -9,24 +9,18 @@ import XCTest
 @testable import MoviesApp
 
 final class MoviesListViewModelTests: XCTestCase {
-
-    var viewModel: MoviesListViewModel!
-    var mockRepository: MockMoviesRepository!
-    let moviesPages: [MoviePage] = [
-        MoviePage(page: 1,
-                  totalPage: 2,
-                  moviesPageArray: [
-                    Movie(titulo: "Superman", ano: "2020", caminhoIMG: ""),
-                    Movie(titulo: "Batman", ano: "2018", caminhoIMG: ""),
-                    Movie(titulo: "Aquaman", ano: "2022", caminhoIMG: "")
-                  ]),
-        MoviePage(page: 2,
-                  totalPage: 2,
-                  moviesPageArray: [
-                    Movie(titulo: "Superman 2", ano: "2022", caminhoIMG: ""),
-                    Movie(titulo: "Batman 2", ano: "2020", caminhoIMG: ""),
-                    Movie(titulo: "Aquaman 2", ano: "2024", caminhoIMG: "")
-                  ])
+    private var viewModel: MoviesListViewModel!
+    private var mockRepository: MockMoviesRepository!
+    
+    private let page1: [Movie] = [
+        Movie(titulo: "Superman", ano: "2020", caminhoIMG: ""),
+        Movie(titulo: "Batman", ano: "2018", caminhoIMG: ""),
+        Movie(titulo: "Aquaman", ano: "2022", caminhoIMG: "")
+    ]
+    private let page2 = [
+        Movie(titulo: "Superman 2", ano: "2022", caminhoIMG: ""),
+        Movie(titulo: "Batman 2", ano: "2020", caminhoIMG: ""),
+        Movie(titulo: "Aquaman 2", ano: "2024", caminhoIMG: "")
     ]
     
     override func setUp()  {
@@ -40,47 +34,39 @@ final class MoviesListViewModelTests: XCTestCase {
     }
     
     func testIfFirstPageLoads()  {
-        //Prepare
-        mockRepository.mockMovies = moviesPages[0].moviesPageArray
-        let expectation = expectation(description: "Wait for movies update")
+        // Prepare
+        mockRepository.mockMovies = page1
+        mockRepository.expectation = expectation(description: "Single page load")
         
-        //Execute
-        viewModel.fetchMovies(pagina: 1) {
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        //Assert
-        XCTAssertEqual(viewModel.movies.value.count, 3)
-        XCTAssertEqual(viewModel.movies.value, moviesPages[0].moviesPageArray)
+        // Execute
+        viewModel.fetchMovies(pagina: 1)
+        waitForExpectations(timeout: 5)
+
+        // Assert
+        XCTAssertEqual(viewModel.movies.value.count, page1.count)
+        XCTAssertEqual(viewModel.movies.value, page1)
     }
     
     func testIfTwoPagesAreRequestedThenViewModelContainsTwoPages()  {
-        //Prepare
-        mockRepository.mockMovies = moviesPages[0].moviesPageArray
-        let exp = expectation(description: "Wait movie update")
-        
-        //Execute
-        viewModel.fetchMovies(pagina: 1) {
-            exp.fulfill()
-        }
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        //Prepare
-        mockRepository.mockMovies = moviesPages[1].moviesPageArray
-        let exp2 = expectation(description: "Wait for Page update")
-        
-        //Execute
-        viewModel.nextPage() {
-            exp2.fulfill()
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
-        
-        //Assert
-        XCTAssertEqual(viewModel.movies.value.count, 6)
-        XCTAssertEqual(viewModel.movies.value, moviesPages[0].moviesPageArray + moviesPages[1].moviesPageArray)
+        // Prepare
+        mockRepository.mockMovies = page1
+        mockRepository.expectation = expectation(description: "Fist page load")
+
+        // Execute
+        viewModel.fetchMovies(pagina: 1)
+        waitForExpectations(timeout: 5)
+    
+        mockRepository.mockMovies = page2
+        mockRepository.expectation = expectation(description: "Second page load")
+
+        viewModel.nextPage()
+        waitForExpectations(timeout: 5)
+
+        // Assert
+        let allPages = page1 + page2
+        XCTAssertEqual(viewModel.movies.value.count, allPages.count)
+        XCTAssertEqual(viewModel.movies.value, allPages)
+        XCTAssertEqual(viewModel.paginaAtual, 2)
     }
 }
 

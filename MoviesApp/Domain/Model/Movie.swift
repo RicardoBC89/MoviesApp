@@ -1,4 +1,3 @@
-
 import Foundation
 
 struct Movie: Decodable {
@@ -10,10 +9,4 @@ struct Movie: Decodable {
         case ano = "release_date"
         case caminhoIMG = "poster_path"
     }
-}
-
-struct MoviePage {
-    let page: Int
-    let totalPage: Int
-    let moviesPageArray: [Movie]
 }
