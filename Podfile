@@ -12,8 +12,4 @@ target 'MoviesApp' do
     # Pods for testing
   end
 
-  target 'MoviesAppUITests' do
-    # Pods for testing
-  end
-
 end

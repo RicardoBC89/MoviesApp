@@ -29,8 +29,20 @@ final class MoviesListViewController: UIViewController {
         moviesListTableView.dataSource = self
         moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
         viewModel.fetchMovies(pagina: 1)
-        viewModel.movies.observe(on: self) { movies in
-            self.moviesListTableView.reloadData()
+        setUpBindings()
+    }
+    
+    func setUpBindings() {
+        viewModel.movies.observe(on: self) { [weak self] movies in
+            self?.moviesListTableView.reloadData()
+        }
+        viewModel.isLoading.observe(on: self) { [weak self] shouldShowLoading in
+            guard let self = self else { return }
+            if shouldShowLoading, self.viewModel.movies.value.isEmpty {
+                LoadingOverlay.shared.showOverlay(view: self.view)
+            } else {
+                LoadingOverlay.shared.hideOverlayView()
+            }
         }
     }
 }
