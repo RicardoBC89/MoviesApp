@@ -12,8 +12,11 @@ class MoviesItemTableViewCell: UITableViewCell {
     @IBOutlet weak var movieAno: UILabel!
     @IBOutlet weak var movieTitulo: UILabel!
     @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func adicionarInformacaoMovie (titulo: String, ano: String, caminhoIMG: String) {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         movieTitulo.text = titulo
         movieAno.text = ano.formatDate()
         let baseURL = "https://image.tmdb.org/t/p/original"
@@ -22,10 +25,10 @@ class MoviesItemTableViewCell: UITableViewCell {
             .processor(DownsamplingImageProcessor(size: posterImageView.bounds.size)),
             .scaleFactor(UIScreen.main.scale),
             .cacheOriginalImage,
-            .forceRefresh,
-            .memoryCacheExpiration(.expired),
-            .diskCacheExpiration(.expired)
-        ])
+        ]) { [weak self] _ in
+            self?.activityIndicator.stopAnimating()
+            self?.activityIndicator.isHidden = true
+        }
     }
     
     override func awakeFromNib() {
