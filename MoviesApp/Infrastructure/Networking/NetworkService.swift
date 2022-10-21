@@ -6,18 +6,20 @@ final class NetworkService {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            completionHandler([], NetworkError.internalServerError)
-            return
             guard let httpResponse = response as? HTTPURLResponse else {
                 self?.errorLogger.log(error: NetworkError.unexpected)
                 return
             }
-            if httpResponse.statusCode == 500 {
-                completionHandler([], NetworkError.internalServerError)
-                return
+            if !(200..<300).contains(httpResponse.statusCode) {
+                if httpResponse.statusCode == 500 {
+                    completionHandler([], NetworkError.internalServerError)
+                    return
+                } else {
+                    completionHandler([], NetworkError.unexpected)
+                }
             }
-            if httpResponse.statusCode == -1009 {
-                completionHandler([], NetworkError.noInternet)
+            if let otherError = self?.handleOtherErrors(error: error) {
+                completionHandler([], otherError)
                 return
             }
             guard let data = data else {
@@ -32,5 +34,16 @@ final class NetworkService {
             completionHandler(response.results, nil)
         }
         task.resume()
+    }
+    
+    private func handleOtherErrors(error: Error?) -> NetworkError? {
+        guard let error = error else {
+            return nil
+        }
+        let code = URLError.Code(rawValue: (error as NSError).code)
+        switch code {
+        case .notConnectedToInternet: return .noInternet
+        default: return .unexpected
+        }
     }
 }
