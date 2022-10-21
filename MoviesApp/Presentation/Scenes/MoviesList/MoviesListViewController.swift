@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class MoviesListViewController: UIViewController {
+final class MoviesListViewController: EmptyStateDisplayable {
+    
+    override var viewQueEuQueroQueColoqueOEmptyView: UIView {
+        view
+    }
+    
     
     @IBOutlet weak var moviesListTableView: UITableView!
     
@@ -34,7 +39,13 @@ final class MoviesListViewController: UIViewController {
     
     func setUpBindings() {
         viewModel.movies.observe(on: self) { [weak self] movies in
-            self?.moviesListTableView.reloadData()
+            guard let self = self else { return }
+            if movies.isEmpty {
+                self.showEmptyState()
+            } else {
+                self.hideEmptyState()
+            }
+            self.moviesListTableView.reloadData()
         }
         viewModel.errorObservable.observe(on: self) { error in
             guard let error = error as? NetworkError else {return}
