@@ -36,6 +36,13 @@ final class MoviesListViewController: UIViewController {
         viewModel.movies.observe(on: self) { [weak self] movies in
             self?.moviesListTableView.reloadData()
         }
+        viewModel.errorObservable.observe(on: self) { error in
+            guard let error = error as? NetworkError else {return}
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let popUp = UIAlertController(title: "Erro", message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
+            popUp.addAction(action)
+            self.present(popUp, animated: true, completion: nil)
+        }
         viewModel.isLoading.observe(on: self) { [weak self] shouldShowLoading in
             guard let self = self else { return }
             if shouldShowLoading, self.viewModel.movies.value.isEmpty {
