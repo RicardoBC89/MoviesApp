@@ -10,4 +10,8 @@ extension String {
         outputFormatter.dateFormat = "YYYY"
         return outputFormatter.string(from: date)
     }
+    
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
 }

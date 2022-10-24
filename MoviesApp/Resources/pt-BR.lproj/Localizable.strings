@@ -1,0 +1,10 @@
+
+"empty_state_problem_description" = "Problemas ao carregar, tente novamente mais tarde";
+"try_again" = "Tente novamente";
+"no_internet" = "Sem internet";
+"no_JSON" = "JSON Parsing não feito";
+"no_data" = "Sem data";
+"server_error" = "Servidor com problemas, tente mais tarde";
+"unexpected" = "Nem sei o que aconteceu, valeu, beijos na familia";
+"ok" = "Ok";
+"error" = "Erro";

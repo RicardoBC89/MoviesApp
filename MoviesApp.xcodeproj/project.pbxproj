@@ -36,6 +36,7 @@
 		CEE310D729030D4F00C9164F /* EmptyStateView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE310D629030D4F00C9164F /* EmptyStateView.xib */; };
 		CEE310D9290316D200C9164F /* EmptyStateDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE310D8290316D200C9164F /* EmptyStateDisplayable.swift */; };
 		CEE99A6D28FD7FF5001A3497 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE99A6C28FD7FF5001A3497 /* MovieResponse.swift */; };
+		CEEDAB942906D26A003540DE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEEDAB962906D26A003540DE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,9 @@
 		CEE310D629030D4F00C9164F /* EmptyStateView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyStateView.xib; sourceTree = "<group>"; };
 		CEE310D8290316D200C9164F /* EmptyStateDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateDisplayable.swift; sourceTree = "<group>"; };
 		CEE99A6C28FD7FF5001A3497 /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		CEEDAB932906D241003540DE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		CEEDAB952906D26A003540DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CEEDAB972906D270003540DE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,7 @@
 				CE056CE428EE4B3400598603 /* Assets.xcassets */,
 				CE056CE628EE4B3400598603 /* LaunchScreen.storyboard */,
 				CE056CE928EE4B3400598603 /* Info.plist */,
+				CEEDAB962906D26A003540DE /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = CE056CCF28EE4B2D00598603;
 			productRefGroup = CE056CCF28EE4B2D00598603;
@@ -426,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE056CE828EE4B3400598603 /* LaunchScreen.storyboard in Resources */,
+				CEEDAB942906D26A003540DE /* Localizable.strings in Resources */,
 				CEE310D729030D4F00C9164F /* EmptyStateView.xib in Resources */,
 				CE77174D28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib in Resources */,
 				CE056CE528EE4B3400598603 /* Assets.xcassets in Resources */,
@@ -558,8 +565,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE056CE728EE4B3400598603 /* Base */,
+				CEEDAB932906D241003540DE /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CEEDAB962906D26A003540DE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEEDAB952906D26A003540DE /* en */,
+				CEEDAB972906D270003540DE /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -569,6 +586,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -630,6 +648,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

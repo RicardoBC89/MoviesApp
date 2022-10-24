@@ -19,15 +19,15 @@ extension NetworkError {
     var errorDescripition: String? {
         switch self {
         case .noInternet:
-            return "Sem internet"
+            return "no_internet".localized
         case .JSONParsingError:
-            return "JSON Parsing não feito"
+            return "no_JSON".localized
         case .noData:
-            return "Sem data"
+            return "no_data".localized
         case .internalServerError:
-            return "Servidor com problemas, tente mais tarde"
+            return "server_error".localized
         case .unexpected:
-            return "Nem sei o que aconteceu, valeu, beijos na familia"
+            return "unexpected".localized
         }
     }
 }
