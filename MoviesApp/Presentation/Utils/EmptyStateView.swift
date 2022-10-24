@@ -12,6 +12,7 @@ final class EmptyStateView: UIView {
     @IBAction func onTryAgainButtonTap(_ sender: Any) {
         onTryAgainAction()
     }
+    @IBOutlet weak var tryAgainButton: UIButton!
     var onTryAgainAction: () -> Void = {
         
     }
@@ -19,10 +20,17 @@ final class EmptyStateView: UIView {
     init() {
         super.init(frame: .zero)
         loadNibContent()
+        setUpViews()
+    }
+    
+    private func setUpViews() {
+        problemLabel.text = "empty_state_problem_description".localized
+        tryAgainButton.setTitle("try_again".localized, for: .normal)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadNibContent()
+        setUpViews()
     }
 }

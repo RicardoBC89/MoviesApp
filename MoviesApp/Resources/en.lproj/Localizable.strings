@@ -1,0 +1,10 @@
+
+"empty_state_problem_description" = "Problem to load, try again later";
+"try_again" = "Try again";
+"no_internet" = "No internet";
+"no_JSON" = "JSON failure";
+"no_data" = "No data";
+"server_error" = "Server error, try again later";
+"unexpected" = "Unexpected error, don't know what happend, better luck in the next life";
+"ok" = "OK";
+"error" = "Error";

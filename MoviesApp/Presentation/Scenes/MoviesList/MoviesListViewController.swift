@@ -51,8 +51,8 @@ final class MoviesListViewController: EmptyStateDisplayable {
         }
         viewModel.errorObservable.observe(on: self) { error in
             guard let error = error as? NetworkError else {return}
-            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let popUp = UIAlertController(title: "Erro", message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
+            let action = UIAlertAction(title: "ok".localized, style: .default, handler: nil)
+            let popUp = UIAlertController(title: "error".localized, message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
             popUp.addAction(action)
             self.present(popUp, animated: true, completion: nil)
         }

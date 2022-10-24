@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmptyStateView" customModule="MoviesApp" customModuleProvider="target">
             <connections>
                 <outlet property="problemLabel" destination="4Ly-x9-QIQ" id="Gjx-U9-xVw"/>
+                <outlet property="tryAgainButton" destination="oKH-LP-F4g" id="d21-Qa-gVe"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
