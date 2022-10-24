@@ -13,7 +13,6 @@ final class MoviesListViewController: EmptyStateDisplayable {
         view
     }
     
-    
     @IBOutlet weak var moviesListTableView: UITableView!
     
     private let viewModel: MoviesListViewModel
@@ -35,6 +34,9 @@ final class MoviesListViewController: EmptyStateDisplayable {
         moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
         viewModel.fetchMovies(pagina: 1)
         setUpBindings()
+        emptyStateView.onTryAgainAction = { [weak self] in
+            self?.viewModel.fetchMovies(pagina: 1)
+        }
     }
     
     func setUpBindings() {

@@ -10,6 +10,10 @@ import UIKit
 final class EmptyStateView: UIView {
     @IBOutlet weak var problemLabel: UILabel!
     @IBAction func onTryAgainButtonTap(_ sender: Any) {
+        onTryAgainAction()
+    }
+    var onTryAgainAction: () -> Void = {
+        
     }
     
     init() {
