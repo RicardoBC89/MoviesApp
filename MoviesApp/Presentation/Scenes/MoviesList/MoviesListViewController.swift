@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class MoviesListViewController: UIViewController {
+final class MoviesListViewController: EmptyStateDisplayable {
+    
+    override var viewQueEuQueroQueColoqueOEmptyView: UIView {
+        view
+    }
     
     @IBOutlet weak var moviesListTableView: UITableView!
     
@@ -30,11 +34,27 @@ final class MoviesListViewController: UIViewController {
         moviesListTableView.register(MoviesItemTableViewCell.nib, forCellReuseIdentifier: MoviesItemTableViewCell.reuseIdentifier)
         viewModel.fetchMovies(pagina: 1)
         setUpBindings()
+        emptyStateView.onTryAgainAction = { [weak self] in
+            self?.viewModel.fetchMovies(pagina: 1)
+        }
     }
     
     func setUpBindings() {
         viewModel.movies.observe(on: self) { [weak self] movies in
-            self?.moviesListTableView.reloadData()
+            guard let self = self else { return }
+            if movies.isEmpty {
+                self.showEmptyState()
+            } else {
+                self.hideEmptyState()
+            }
+            self.moviesListTableView.reloadData()
+        }
+        viewModel.errorObservable.observe(on: self) { error in
+            guard let error = error as? NetworkError else {return}
+            let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let popUp = UIAlertController(title: "Erro", message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
+            popUp.addAction(action)
+            self.present(popUp, animated: true, completion: nil)
         }
         viewModel.isLoading.observe(on: self) { [weak self] shouldShowLoading in
             guard let self = self else { return }
