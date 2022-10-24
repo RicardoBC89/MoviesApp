@@ -68,6 +68,19 @@ final class MoviesListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.movies.value, allPages)
         XCTAssertEqual(viewModel.paginaAtual, 2)
     }
+    
+    func testIfTheRepositoryReturnsErrorThenViewModelContainsError() {
+        //Prepare
+        mockRepository.error = NetworkError.unexpected
+        mockRepository.expectation = expectation(description: "Repository returns error")
+        
+        //Execute
+        viewModel.fetchMovies(pagina: 1)
+        waitForExpectations(timeout: 5)
+        
+        //Assert
+        XCTAssertNotNil(viewModel.errorObservable.value)
+    }
 }
 
 extension Movie: Equatable {
