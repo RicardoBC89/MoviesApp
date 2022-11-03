@@ -19,8 +19,7 @@ class MoviesItemTableViewCell: UITableViewCell {
         activityIndicator.startAnimating()
         movieTitulo.text = titulo
         movieAno.text = ano.formatDate()
-        let baseURL = "https://image.tmdb.org/t/p/original"
-        guard let url = URL (string: baseURL+caminhoIMG) else {return}
+        guard let url = URL (string: AppConfiguration.imageBaseURL+caminhoIMG) else {return}
         posterImageView.kf.setImage(with: url, options: [
             .processor(DownsamplingImageProcessor(size: posterImageView.bounds.size)),
             .scaleFactor(UIScreen.main.scale),

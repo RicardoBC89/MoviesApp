@@ -1,8 +1,19 @@
 import Foundation
+
 final class NetworkService {
     let errorLogger = ErrorLogger()
-    func getMovies(pagina: Int, completionHandler: @escaping ([Movie], Error?) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3a3236cd08291ebde30c78c625a5f9c2&language=en-US&page=\(pagina)") else {
+        
+    func get(endpoint: Endpoints,
+             queryParameters: [Dictionary<String,String>],
+             completionHandler: @escaping ([Movie], Error?) -> Void) {
+        guard let apiKey = queryParameters[0]["api_key"],
+        let page = queryParameters[1]["page"]
+        else {
+            completionHandler([],NetworkError.badRequest)
+            return
+        }
+        let queryString = "?api_key=\(apiKey)&page=\(page)"
+        guard let url = URL(string: AppConfiguration.apiBaseURL+endpoint.rawValue+queryString) else {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in

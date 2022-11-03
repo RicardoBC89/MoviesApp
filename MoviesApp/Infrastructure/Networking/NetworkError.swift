@@ -13,6 +13,7 @@ enum NetworkError: Error {
     case noData
     case internalServerError
     case unexpected
+    case badRequest
 }
 
 extension NetworkError {
@@ -26,7 +27,7 @@ extension NetworkError {
             return "no_data".localized
         case .internalServerError:
             return "server_error".localized
-        case .unexpected:
+        case .unexpected, .badRequest:
             return "unexpected".localized
         }
     }
