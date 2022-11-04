@@ -1,8 +1,13 @@
 import Foundation
+
 final class NetworkService {
     let errorLogger = ErrorLogger()
-    func getMovies(pagina: Int, completionHandler: @escaping ([Movie], Error?) -> Void) {
-        guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=3a3236cd08291ebde30c78c625a5f9c2&language=en-US&page=\(pagina)") else {
+        
+    func get<T: Decodable>(endpoint: Endpoints,
+             queryParameters: [Dictionary<String,String>],
+             completionHandler: @escaping (T?, Error?) -> Void) {
+        let queryString = parseQueryParameters(queryParameters: queryParameters)
+        guard let url = URL(string: AppConfiguration.apiBaseURL + endpoint.rawValue + queryString) else {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
@@ -12,14 +17,14 @@ final class NetworkService {
             }
             if !(200..<300).contains(httpResponse.statusCode) {
                 if httpResponse.statusCode == 500 {
-                    completionHandler([], NetworkError.internalServerError)
+                    completionHandler(nil, NetworkError.internalServerError)
                     return
                 } else {
-                    completionHandler([], NetworkError.unexpected)
+                    completionHandler(nil, NetworkError.unexpected)
                 }
             }
             if let otherError = self?.handleOtherErrors(error: error) {
-                completionHandler([], otherError)
+                completionHandler(nil, otherError)
                 return
             }
             guard let data = data else {
@@ -27,11 +32,11 @@ final class NetworkService {
                 return
             }
             let decoder = JSONDecoder()
-            guard let response = try? decoder.decode(MovieResponse.self, from: data) else {
+            guard let response = try? decoder.decode(T.self, from: data) else {
                 self?.errorLogger.log(error: NetworkError.JSONParsingError)
                 return
             }
-            completionHandler(response.results, nil)
+            completionHandler(response, nil)
         }
         task.resume()
     }
@@ -45,5 +50,14 @@ final class NetworkService {
         case .notConnectedToInternet: return .noInternet
         default: return .unexpected
         }
+    }
+    private func parseQueryParameters(queryParameters:[Dictionary<String,String>]) -> String {
+        var queryString = "?"
+        for queryParameterDict in queryParameters {
+            for (chave, valor) in queryParameterDict {
+                queryString += chave + "=" + valor + "&"
+            }
+        }
+        return queryString
     }
 }

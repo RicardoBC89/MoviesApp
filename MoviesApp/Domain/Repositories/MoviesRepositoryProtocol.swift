@@ -1,4 +1,4 @@
 
 protocol MoviesRepositoryProtocol {
-    func getMovies(pagina: Int, completionHandler: @escaping ([Movie], Error?) -> Void)
+    func getMovies(pagina: Int, completionHandler: @escaping (MovieResponse?, Error?) -> Void)
 }
