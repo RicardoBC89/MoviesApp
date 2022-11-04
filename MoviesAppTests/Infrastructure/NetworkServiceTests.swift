@@ -1,0 +1,50 @@
+//
+//  NetworkServiceTests.swift
+//  MoviesAppTests
+//
+//  Created by User on 04/11/22.
+//
+
+@testable import MoviesApp
+import XCTest
+import OHHTTPStubs
+
+class NetworkServiceTests: XCTestCase {
+    private let networkService = NetworkService()
+   
+    
+    func testWhenMockDataPassedThenReturnsMovies() {
+        let movieMock =  Movie(titulo: "Homi-Aranha", ano: "2022-10-06", caminhoIMG: "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg")
+        let movieResponseMock = ["page": 1, "results": [
+            ["title": "Homi-Aranha", "release_date": "2022-10-06", "poster_path": "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg"]
+        ]] as [String : Any]
+        stub(condition: isMethodGET()) { _ in
+          return HTTPStubsResponse(
+            jsonObject: movieResponseMock,
+            statusCode: 200,
+            headers: [ "Content-Type": "application/json" ]
+          )
+        }
+        let exp = expectation(description: "Movies return")
+        var moviesResponse: MovieResponse?
+        var e: Error?
+        networkService.get(endpoint: .popular, queryParameters: [["api_key": AppConfiguration.apiKey], ["page": String(1)]]) {(response: MovieResponse?, error: Error?) in
+            guard let response = response else {
+                XCTFail()
+                return
+            }
+            moviesResponse = response
+            e = error
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 5)
+        guard let moviesResponse = moviesResponse else {
+            XCTFail()
+            return
+        }
+
+        XCTAssertEqual(moviesResponse.page, 1)
+        XCTAssertEqual(moviesResponse.results, [movieMock] )
+        XCTAssertNil(e)
+    }
+}

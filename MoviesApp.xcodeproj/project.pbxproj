@@ -24,6 +24,7 @@
 		CE77174528F4DED3007A5FC2 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77174428F4DED2007A5FC2 /* NibLoadable.swift */; };
 		CE77174C28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77174A28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift */; };
 		CE77174D28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */; };
+		CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADE48029155252007E4862 /* NetworkServiceTests.swift */; };
 		CEB1BD0B29018EFD00602937 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1BD0A29018EFD00602937 /* LoadingScreen.swift */; };
 		CED06A1A28F632F700F73255 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1928F632F700F73255 /* Movie.swift */; };
 		CED06A1C28F6380200F73255 /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1B28F6380200F73255 /* MoviesListViewModel.swift */; };
@@ -74,6 +75,7 @@
 		CE77174428F4DED2007A5FC2 /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CE77174A28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesItemTableViewCell.swift; sourceTree = "<group>"; };
 		CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesItemTableViewCell.xib; sourceTree = "<group>"; };
+		CEADE48029155252007E4862 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		CEB1BD0829018D3200602937 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1BD0929018D3200602937 /* MoviesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1BD0A29018EFD00602937 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		CE056CF128EE4B3400598603 /* MoviesAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				CEADE47D291551EA007E4862 /* Infrastructure */,
 				CED11CBA28F85D2B002690F9 /* Presentation */,
 				CE03D08028F8571200FD66E9 /* Data */,
 			);
@@ -311,6 +314,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CEADE47D291551EA007E4862 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				CEADE48029155252007E4862 /* NetworkServiceTests.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		CED06A1728F632B700F73255 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +393,7 @@
 				CE056CEA28EE4B3400598603 /* Sources */,
 				CE056CEB28EE4B3400598603 /* Frameworks */,
 				CE056CEC28EE4B3400598603 /* Resources */,
+				E0E344516E47EF2F5E3802C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -517,6 +529,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoviesApp/Pods-MoviesApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E0E344516E47EF2F5E3802C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoviesAppTests/Pods-MoviesAppTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoviesAppTests/Pods-MoviesAppTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoviesAppTests/Pods-MoviesAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -554,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED11CBD28F85D73002690F9 /* MoviesListViewModelTests.swift in Sources */,
+				CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */,
 				CE03D08328F8574100FD66E9 /* MockMoviesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
