@@ -3,11 +3,11 @@ import Foundation
 final class NetworkService {
     let errorLogger = ErrorLogger()
         
-    func get<T:Decodable>(endpoint: Endpoints,
+    func get<T: Decodable>(endpoint: Endpoints,
              queryParameters: [Dictionary<String,String>],
              completionHandler: @escaping (T?, Error?) -> Void) {
         let queryString = parseQueryParameters(queryParameters: queryParameters)
-        guard let url = URL(string: AppConfiguration.apiBaseURL+endpoint.rawValue+queryString) else {
+        guard let url = URL(string: AppConfiguration.apiBaseURL + endpoint.rawValue + queryString) else {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
@@ -55,7 +55,7 @@ final class NetworkService {
         var queryString = "?"
         for queryParameterDict in queryParameters {
             for (chave, valor) in queryParameterDict {
-                queryString+=chave+"="+valor+"&"
+                queryString += chave + "=" + valor + "&"
             }
         }
         return queryString
