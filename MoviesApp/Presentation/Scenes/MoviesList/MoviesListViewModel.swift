@@ -14,12 +14,12 @@ final class MoviesListViewModel {
     func fetchMovies(pagina: Int) {
         guard pagina <= lastPage else { return }
         isLoading.value = true
-        moviesRepository.getMovies(pagina: pagina) { [weak self] movies, error in
+        moviesRepository.getMovies(pagina: pagina) { [weak self] moviesResponse, error in
             self?.isLoading.value = false
             if let error = error {
                 self?.errorObservable.value = error
             }
-            self?.movies.value += movies
+            self?.movies.value += moviesResponse?.results ?? []
         }
     }
 

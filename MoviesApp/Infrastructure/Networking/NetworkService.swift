@@ -3,7 +3,7 @@ import Foundation
 final class NetworkService {
     let errorLogger = ErrorLogger()
         
-    func get<T>(endpoint: Endpoints,
+    func get<T:Decodable>(endpoint: Endpoints,
              queryParameters: [Dictionary<String,String>],
              completionHandler: @escaping (T?, Error?) -> Void) {
         let queryString = parseQueryParameters(queryParameters: queryParameters)
