@@ -10,6 +10,7 @@ target 'MoviesApp' do
   target 'MoviesAppTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'OHHTTPStubs/Swift'
   end
 
 end
