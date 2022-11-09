@@ -11,6 +11,14 @@ final class NetworkService {
             return
         }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error as? URLError {
+                switch error.code {
+                case .notConnectedToInternet:
+                    serviceCompletionHandler(nil, NetworkError.noInternet)
+                    return
+                default: serviceCompletionHandler(nil, error)
+                }
+            }
             guard let httpResponse = response as? HTTPURLResponse else {
                 self?.errorLogger.log(error: NetworkError.unexpected)
                 return
@@ -20,7 +28,7 @@ final class NetworkService {
                     serviceCompletionHandler(nil, NetworkError.internalServerError)
                     return
                 } else {
-                    serviceCompletionHandler(nil, NetworkError.unexpected)
+                    serviceCompletionHandler(nil, NetworkError.noInternet)
                 }
             }
             if let otherError = self?.handleOtherErrors(error: error) {
