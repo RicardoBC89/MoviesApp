@@ -28,7 +28,7 @@ final class NetworkService {
                     serviceCompletionHandler(nil, NetworkError.internalServerError)
                     return
                 } else {
-                    serviceCompletionHandler(nil, NetworkError.noInternet)
+                    serviceCompletionHandler(nil, NetworkError.unexpected)
                 }
             }
             if let otherError = self?.handleOtherErrors(error: error) {
