@@ -25,6 +25,8 @@
 		CE77174C28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE77174A28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift */; };
 		CE77174D28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */; };
 		CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADE48029155252007E4862 /* NetworkServiceTests.swift */; };
+		CEAE83C0291BEFCA0005DB3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83BF291BEFCA0005DB3A /* User.swift */; };
+		CEAE83C2291BF0B40005DB3A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83C1291BF0B40005DB3A /* UserRepository.swift */; };
 		CEB1BD0B29018EFD00602937 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1BD0A29018EFD00602937 /* LoadingScreen.swift */; };
 		CED06A1A28F632F700F73255 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1928F632F700F73255 /* Movie.swift */; };
 		CED06A1C28F6380200F73255 /* MoviesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED06A1B28F6380200F73255 /* MoviesListViewModel.swift */; };
@@ -76,6 +78,8 @@
 		CE77174A28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesItemTableViewCell.swift; sourceTree = "<group>"; };
 		CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesItemTableViewCell.xib; sourceTree = "<group>"; };
 		CEADE48029155252007E4862 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		CEAE83BF291BEFCA0005DB3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEAE83C1291BF0B40005DB3A /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		CEB1BD0829018D3200602937 /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1BD0929018D3200602937 /* MoviesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1BD0A29018EFD00602937 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
@@ -217,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0BDAFA28F703E900BF24EA /* MoviesRepository.swift */,
+				CEAE83C1291BF0B40005DB3A /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				CED06A1928F632F700F73255 /* Movie.swift */,
+				CEAE83BF291BEFCA0005DB3A /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				CED06A1A28F632F700F73255 /* Movie.swift in Sources */,
 				CE056CDE28EE4B2E00598603 /* SceneDelegate.swift in Sources */,
 				CEDCD96328FEE3DB0097BAC5 /* String+Extensions.swift in Sources */,
+				CEAE83C2291BF0B40005DB3A /* UserRepository.swift in Sources */,
 				CED23AB329082DD600245CD8 /* AppConfigurations.swift in Sources */,
 				CEE310D12902D5EF00C9164F /* ErrorLogger.swift in Sources */,
 				CED06A1C28F6380200F73255 /* MoviesListViewModel.swift in Sources */,
@@ -575,6 +582,7 @@
 				CEE310D32902D66F00C9164F /* NetworkError.swift in Sources */,
 				CE1EF46928F9AA56004D3024 /* NetworkService.swift in Sources */,
 				CE77174C28F4E0BE007A5FC2 /* MoviesItemTableViewCell.swift in Sources */,
+				CEAE83C0291BEFCA0005DB3A /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
