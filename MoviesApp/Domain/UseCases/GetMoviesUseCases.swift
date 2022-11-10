@@ -13,7 +13,11 @@ protocol GetMoviesUseCaseProtocol {
 
 final class GetMoviesUseCase: GetMoviesUseCaseProtocol {
     private let userRepository: UserRepository = UserRepository()
-    private let moviesRepository: MoviesRepository = MoviesRepository()
+    private let moviesRepository: MoviesRepositoryProtocol
+    
+    init(moviesRepository: MoviesRepositoryProtocol = MoviesRepository()) {
+        self.moviesRepository = moviesRepository
+    }
     
     func execute(pagina: Int, viewModelCompletionHandler: @escaping ([Movie], Error?) -> Void) {
         userRepository.getUser(viewModelCompletionHandler: { [weak self] user in
