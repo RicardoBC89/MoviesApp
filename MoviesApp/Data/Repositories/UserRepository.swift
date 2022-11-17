@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class UserRepository {
+protocol UserRepositoryProtocol {
+    func getUser(viewModelCompletionHandler: @escaping (User?) -> Void)
+}
+
+final class UserRepository: UserRepositoryProtocol {
     var user = User(age: 15)
     
     func getUser(viewModelCompletionHandler: @escaping (User?) -> Void) {
