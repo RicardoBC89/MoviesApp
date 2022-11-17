@@ -1,7 +1,7 @@
 @testable import MoviesApp
 import XCTest
 
-class MockGetMoviesUseCase: GetMoviesUseCaseProtocol {
+final class MockGetMoviesUseCase: GetMoviesUseCaseProtocol {
     var mockMovies: [Movie] = []
     var expectation: XCTestExpectation?
     var error: Error?

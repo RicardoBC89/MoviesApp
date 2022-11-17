@@ -1,7 +1,7 @@
 @testable import MoviesApp
 import XCTest
 
-class MockMoviesRepository: MoviesRepositoryProtocol {
+final class MockMoviesRepository: MoviesRepositoryProtocol {
     var mockMovies: [Movie] = []
     var expectation: XCTestExpectation?
     var error: Error?

@@ -27,6 +27,4 @@ final class MoviesListViewModel {
         paginaAtual += 1
         fetchMovies(pagina: paginaAtual)
     }
-    
-    
 }

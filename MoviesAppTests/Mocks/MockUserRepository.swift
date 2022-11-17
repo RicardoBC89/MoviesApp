@@ -1,7 +1,7 @@
 @testable import MoviesApp
 import XCTest
 
-class MockUserRepository: UserRepositoryProtocol {
+final class MockUserRepository: UserRepositoryProtocol {
     var mockUser: User? = nil
     var expectation: XCTestExpectation?
     var error: Error?

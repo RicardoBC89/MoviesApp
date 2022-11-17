@@ -8,10 +8,10 @@
 import XCTest
 @testable import MoviesApp
 
-class GetMoviesUseCaseTest: XCTestCase {
-    var mockMoviesRepository: MockMoviesRepository!
-    var getMoviesUseCase: GetMoviesUseCase!
-    var mockUserRepository: MockUserRepository!
+final class GetMoviesUseCaseTest: XCTestCase {
+    private var mockMoviesRepository: MockMoviesRepository!
+    private var getMoviesUseCase: GetMoviesUseCase!
+    private var mockUserRepository: MockUserRepository!
     
     private let page1: [Movie] = [
         Movie(titulo: "Superman", ano: "2020", caminhoIMG: "", adult: true),
