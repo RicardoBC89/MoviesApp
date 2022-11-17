@@ -13,9 +13,9 @@ class NetworkServiceTests: XCTestCase {
     private let networkService = NetworkService()
    
     func testWhenMockDataPassedThenReturnsMovies() {
-        let movieMock =  Movie(titulo: "Homi-Aranha", ano: "2022-10-06", caminhoIMG: "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg")
+        let movieMock =  Movie(titulo: "Homi-Aranha", ano: "2022-10-06", caminhoIMG: "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg", adult: false)
         let movieResponseMock = ["page": 1, "results": [
-            ["title": "Homi-Aranha", "release_date": "2022-10-06", "poster_path": "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg"]
+            ["title": "Homi-Aranha", "release_date": "2022-10-06", "poster_path": "/b6IRp6Pl2Fsq37r9jFhGoLtaqHm.jpg", "adult": false]
         ]] as [String : Any]
         stub(condition: isMethodGET()) { _ in
           return HTTPStubsResponse(

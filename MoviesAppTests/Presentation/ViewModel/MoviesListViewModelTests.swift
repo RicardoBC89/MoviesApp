@@ -10,7 +10,7 @@ import XCTest
 
 final class MoviesListViewModelTests: XCTestCase {
     private var viewModel: MoviesListViewModel!
-    private var mockRepository: MockMoviesRepository!
+    private var mockGetMoviesUseCase: MockGetMoviesUseCase!
     
     private let page1: [Movie] = [
         Movie(titulo: "Superman", ano: "2020", caminhoIMG: ""),
@@ -25,8 +25,8 @@ final class MoviesListViewModelTests: XCTestCase {
     
     override func setUp()  {
         super.setUp()
-        mockRepository = MockMoviesRepository()
-        viewModel = MoviesListViewModel(repository: mockRepository)
+        mockGetMoviesUseCase = MockGetMoviesUseCase()
+        viewModel = MoviesListViewModel(getMoviesUseCase: mockGetMoviesUseCase)
     }
 
     override func tearDown()  {
@@ -35,8 +35,8 @@ final class MoviesListViewModelTests: XCTestCase {
     
     func testIfFirstPageLoads()  {
         // Prepare
-        mockRepository.mockMovies = page1
-        mockRepository.expectation = expectation(description: "Single page load")
+        mockGetMoviesUseCase.mockMovies = page1
+        mockGetMoviesUseCase.expectation = expectation(description: "Single page load")
         
         // Execute
         viewModel.fetchMovies(pagina: 1)
@@ -49,15 +49,15 @@ final class MoviesListViewModelTests: XCTestCase {
     
     func testIfTwoPagesAreRequestedThenViewModelContainsTwoPages()  {
         // Prepare
-        mockRepository.mockMovies = page1
-        mockRepository.expectation = expectation(description: "Fist page load")
+        mockGetMoviesUseCase.mockMovies = page1
+        mockGetMoviesUseCase.expectation = expectation(description: "Fist page load")
 
         // Execute
         viewModel.fetchMovies(pagina: 1)
         waitForExpectations(timeout: 5)
     
-        mockRepository.mockMovies = page2
-        mockRepository.expectation = expectation(description: "Second page load")
+        mockGetMoviesUseCase.mockMovies = page2
+        mockGetMoviesUseCase.expectation = expectation(description: "Second page load")
 
         viewModel.nextPage()
         waitForExpectations(timeout: 5)
@@ -71,8 +71,8 @@ final class MoviesListViewModelTests: XCTestCase {
     
     func testIfTheRepositoryReturnsErrorThenViewModelContainsError() {
         //Prepare
-        mockRepository.error = NetworkError.unexpected
-        mockRepository.expectation = expectation(description: "Repository returns error")
+        mockGetMoviesUseCase.error = NetworkError.unexpected
+        mockGetMoviesUseCase.expectation = expectation(description: "Repository returns error")
         
         //Execute
         viewModel.fetchMovies(pagina: 1)
