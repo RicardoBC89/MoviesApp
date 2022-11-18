@@ -22,7 +22,7 @@ final class GetMoviesUseCase: GetMoviesUseCaseProtocol {
     
     func execute(pagina: Int, viewModelCompletionHandler: @escaping ([Movie], Error?) -> Void) {
         userRepository.getUser(viewModelCompletionHandler: { [weak self] user in
-            self?.moviesRepository.getMovies(pagina: 1) { movies, error in
+            self?.moviesRepository.getMovies(pagina: pagina) { movies, error in
                 if let error = error {
                     viewModelCompletionHandler([], error)
                     return

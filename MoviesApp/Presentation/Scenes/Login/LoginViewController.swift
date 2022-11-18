@@ -16,6 +16,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var agePickerView: UIPickerView!
     @IBAction func onSubmitButtonTap(_ sender: Any) {
+        guard let text = insertAgeTextField.text, !text.isEmpty else {
+            insertAgeTextField.layer.borderColor = UIColor.red.cgColor
+            insertAgeTextField.layer.borderWidth = 1
+            print(insertAgeTextField.text)
+            return
+            }
+        navigationController?.pushViewController(MoviesListViewController(viewModel: MoviesListViewModel()), animated: true)
       //  if insertAgeTextField.text > 21
     }
    
@@ -49,6 +56,7 @@ class LoginViewController: UIViewController {
         insertAgeTextField.resignFirstResponder()
         agePickerView.isHidden = true
         toolBar?.isHidden = true
+        insertAgeTextField.layer.borderWidth = 0
     }
 }
 
