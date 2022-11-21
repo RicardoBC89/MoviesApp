@@ -6,7 +6,8 @@
 //
 
 import Foundation
+import SwiftyUserDefaults
 
-struct User {
+struct User: DefaultsSerializable, Codable {
     var age: Int
 }

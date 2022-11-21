@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SwiftUI
 
 class LoginViewController: UIViewController {
-    
+    private let viewModel = LoginViewModel()
     var toolBar: UIToolbar?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
@@ -19,9 +20,9 @@ class LoginViewController: UIViewController {
         guard let text = insertAgeTextField.text, !text.isEmpty else {
             insertAgeTextField.layer.borderColor = UIColor.red.cgColor
             insertAgeTextField.layer.borderWidth = 1
-            print(insertAgeTextField.text)
             return
             }
+        viewModel.saveUser(age: text)
         navigationController?.pushViewController(MoviesListViewController(viewModel: MoviesListViewModel()), animated: true)
       //  if insertAgeTextField.text > 21
     }

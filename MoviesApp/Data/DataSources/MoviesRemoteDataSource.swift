@@ -1,4 +1,5 @@
 import Accelerate
+
 final class MoviesRemoteDataSource {
     private let service = NetworkService()
     
