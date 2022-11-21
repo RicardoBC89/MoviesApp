@@ -2,6 +2,10 @@
 import XCTest
 
 final class MockUserRepository: UserRepositoryProtocol {
+    func saveUser(user: User) {
+        expectation?.fulfill()
+    }
+    
     var mockUser: User? = nil
     var expectation: XCTestExpectation?
     var error: Error?

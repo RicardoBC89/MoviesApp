@@ -31,6 +31,8 @@
 		CE77174D28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */; };
 		CE811A08292BB95500898B9D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE811A07292BB95500898B9D /* LoginViewModel.swift */; };
 		CE811A0A292BBBBD00898B9D /* SaveUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE811A09292BBBBD00898B9D /* SaveUserUseCase.swift */; };
+		CE811A0C292BC71500898B9D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE811A0B292BC71500898B9D /* LoginViewModelTests.swift */; };
+		CE811A0E292BC7C800898B9D /* MockSaveUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE811A0D292BC7C800898B9D /* MockSaveUserUseCase.swift */; };
 		CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADE48029155252007E4862 /* NetworkServiceTests.swift */; };
 		CEAE83C0291BEFCA0005DB3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83BF291BEFCA0005DB3A /* User.swift */; };
 		CEAE83C2291BF0B40005DB3A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83C1291BF0B40005DB3A /* UserRepository.swift */; };
@@ -92,6 +94,8 @@
 		CE77174B28F4E0BE007A5FC2 /* MoviesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MoviesItemTableViewCell.xib; sourceTree = "<group>"; };
 		CE811A07292BB95500898B9D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE811A09292BBBBD00898B9D /* SaveUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUserUseCase.swift; sourceTree = "<group>"; };
+		CE811A0B292BC71500898B9D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		CE811A0D292BC7C800898B9D /* MockSaveUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSaveUserUseCase.swift; sourceTree = "<group>"; };
 		CEADE48029155252007E4862 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		CEAE83BF291BEFCA0005DB3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEAE83C1291BF0B40005DB3A /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				CE03D08228F8574100FD66E9 /* MockMoviesRepository.swift */,
 				CE24DD92291D385F0004310A /* MockGetMoviesUseCase.swift */,
 				CE24DD98291D4ACF0004310A /* MockUserRepository.swift */,
+				CE811A0D292BC7C800898B9D /* MockSaveUserUseCase.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				CED11CBC28F85D73002690F9 /* MoviesListViewModelTests.swift */,
+				CE811A0B292BC71500898B9D /* LoginViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -640,6 +646,8 @@
 				CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */,
 				CE24DD97291D3F0C0004310A /* GetMoviesUseCaseTest.swift in Sources */,
 				CE03D08328F8574100FD66E9 /* MockMoviesRepository.swift in Sources */,
+				CE811A0E292BC7C800898B9D /* MockSaveUserUseCase.swift in Sources */,
+				CE811A0C292BC71500898B9D /* LoginViewModelTests.swift in Sources */,
 				CE24DD93291D385F0004310A /* MockGetMoviesUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
