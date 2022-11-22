@@ -11,3 +11,6 @@ import SwiftyUserDefaults
 struct User: DefaultsSerializable, Codable {
     var age: Int
 }
+
+extension User: Equatable {
+}

@@ -14,16 +14,18 @@ protocol UserRepositoryProtocol {
 }
 
 final class UserRepository: UserRepositoryProtocol {
+    var userCacheDataSource: UserCacheDataSourceProtocol
+    
+    init(userCacheDataSource: UserCacheDataSourceProtocol = UserCacheDataSource()) {
+        self.userCacheDataSource = userCacheDataSource
+        
+    }
     
     func getUser() -> User? {
-        Defaults[key: DefaultsKeys.loggedInUser]
+        userCacheDataSource.getUser()
     }
     
     func saveUser(user: User) {
-        Defaults[key: DefaultsKeys.loggedInUser] = user
+        userCacheDataSource.saveUser(user: user)
     }
-}
-
-extension DefaultsKeys {
-    static let loggedInUser = DefaultsKey<User?>("LoggedInUser")
 }
