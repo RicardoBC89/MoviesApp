@@ -2,20 +2,12 @@
 import XCTest
 
 final class MockUserRepository: UserRepositoryProtocol {
-    func saveUser(user: User) {
-        expectation?.fulfill()
+    var mockUser: User? = nil
+    
+    func getUser() -> User? {
+       mockUser
     }
     
-    var mockUser: User? = nil
-    var expectation: XCTestExpectation?
-    var error: Error?
-    
-    func getUser(viewModelCompletionHandler completionHandler: @escaping (User?) -> Void) {
-        expectation?.fulfill()
-        if error != nil {
-            completionHandler(nil)
-        } else {
-            completionHandler(mockUser)
-        }
+    func saveUser(user: User) {
     }
 }

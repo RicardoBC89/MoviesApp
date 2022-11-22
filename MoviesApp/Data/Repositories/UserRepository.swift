@@ -9,15 +9,14 @@ import Foundation
 import SwiftyUserDefaults
 
 protocol UserRepositoryProtocol {
-    func getUser(viewModelCompletionHandler: @escaping (User?) -> Void)
-    
+    func getUser() -> User?
     func saveUser(user:User)
 }
 
 final class UserRepository: UserRepositoryProtocol {
     
-    func getUser(viewModelCompletionHandler: @escaping (User?) -> Void) {
-        viewModelCompletionHandler(Defaults[key: DefaultsKeys.loggedInUser])
+    func getUser() -> User? {
+        Defaults[key: DefaultsKeys.loggedInUser]
     }
     
     func saveUser(user: User) {

@@ -21,27 +21,26 @@ final class GetMoviesUseCase: GetMoviesUseCaseProtocol {
     }
     
     func execute(pagina: Int, viewModelCompletionHandler: @escaping ([Movie], Error?) -> Void) {
-        userRepository.getUser(viewModelCompletionHandler: { [weak self] user in
-            self?.moviesRepository.getMovies(pagina: pagina) { movies, error in
-                if let error = error {
-                    viewModelCompletionHandler([], error)
-                    return
-                }
-                guard let user = user else {
-                    viewModelCompletionHandler(movies, error)
-                    return
-                }
-                if user.age < 21 {
-                    let filteredMovies = movies.filter { movie in
-                        movie.adult == false
-                    }
-                    viewModelCompletionHandler(filteredMovies, error)
-                    return
-                } else {
-                    viewModelCompletionHandler(movies, error)
-                    return
-                }
+        let user = userRepository.getUser()
+        moviesRepository.getMovies(pagina: pagina) { movies, error in
+            if let error = error {
+                viewModelCompletionHandler([], error)
+                return
             }
-        })
+            guard let user = user else {
+                viewModelCompletionHandler(movies, error)
+                return
+            }
+            if user.age < 21 {
+                let filteredMovies = movies.filter { movie in
+                    movie.adult == false
+                }
+                viewModelCompletionHandler(filteredMovies, error)
+                return
+            } else {
+                viewModelCompletionHandler(movies, error)
+                return
+            }
+        }
     }
 }

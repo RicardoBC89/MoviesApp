@@ -19,12 +19,11 @@ class LoginViewModelTests: XCTestCase {
     
     func testIfSaveUserUseCaseIsCalled() {
         // Prepare
-        mockSaveUserUseCase.expectation = expectation(description: "Wait for UseCase execution")
         mockSaveUserUseCase.callCount = 0
         
         // Execute
         viewModel.saveUser(age: "10")
-        waitForExpectations(timeout: 5)
+        
         // Assert
         XCTAssertEqual(mockSaveUserUseCase.callCount, 1)
     }
