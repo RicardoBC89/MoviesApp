@@ -15,9 +15,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let viewModel = MoviesListViewModel()
-        let MoviesListNavagationController = UINavigationController (rootViewController: MoviesListViewController(viewModel: viewModel))
-        window?.rootViewController=MoviesListNavagationController
+        var initialViewController: UIViewController?
+        if let _ = UserRepository().getUser() {
+            initialViewController = MoviesListViewController(viewModel: MoviesListViewModel())
+        } else {
+            initialViewController = LoginViewController(viewModel: LoginViewModel())
+        }
+        guard let initialViewController = initialViewController else {
+            fatalError("No initial view controller set")
+        }
+        let navagationController = UINavigationController(rootViewController: initialViewController)
+        window?.rootViewController = navagationController
         window?.makeKeyAndVisible()
     }
 }

@@ -8,13 +8,23 @@
 import Foundation
 
 protocol UserRepositoryProtocol {
-    func getUser(viewModelCompletionHandler: @escaping (User?) -> Void)
+    func getUser() -> User?
+    func saveUser(user:User)
 }
 
 final class UserRepository: UserRepositoryProtocol {
-    var user = User(age: 15)
+    private let userCacheDataSource: UserCacheDataSourceProtocol
     
-    func getUser(viewModelCompletionHandler: @escaping (User?) -> Void) {
-        viewModelCompletionHandler(user)
+    init(userCacheDataSource: UserCacheDataSourceProtocol = UserCacheDataSource()) {
+        self.userCacheDataSource = userCacheDataSource
+        
+    }
+    
+    func getUser() -> User? {
+        userCacheDataSource.getUser()
+    }
+    
+    func saveUser(user: User) {
+        userCacheDataSource.saveUser(user: user)
     }
 }

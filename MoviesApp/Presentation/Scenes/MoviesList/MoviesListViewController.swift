@@ -39,6 +39,12 @@ final class MoviesListViewController: EmptyStateDisplayable {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.setHidesBackButton(true, animated: false)
+        title = "movie_list_screen_title".localized
+    }
+    
     func setUpBindings() {
         viewModel.movies.observe(on: self) { [weak self] movies in
             guard let self = self else { return }
