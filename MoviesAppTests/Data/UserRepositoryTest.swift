@@ -9,8 +9,8 @@ import XCTest
 @testable import MoviesApp
 
 class UserRepositoryTest: XCTestCase {
-    var userRepository: UserRepository!
-    var mockUserCacheDataSource: MockUserCacheDataSource!
+   private var userRepository: UserRepository!
+   private var mockUserCacheDataSource: MockUserCacheDataSource!
     
     override func setUp() {
         super.setUp()
