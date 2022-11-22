@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class LoginViewController: UIViewController {
-    private let viewModel = LoginViewModel()
+    private let viewModel: LoginViewModel
     var toolBar: UIToolbar?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
@@ -29,6 +29,16 @@ class LoginViewController: UIViewController {
    
     private let ageList: [Int] = Array<Int>((1...120))
     var selectedAge: Int?
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         agePickerView.delegate = self
@@ -37,7 +47,7 @@ class LoginViewController: UIViewController {
         insertAgeTextField.inputView = agePickerView
         agePickerView.isHidden = true
         agePickerView.clipsToBounds = false
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonTapped))
+        let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneButtonTapped))
         toolBar = UIToolbar()
         if let toolBar = toolBar {
             toolBar.isHidden = true
@@ -47,6 +57,10 @@ class LoginViewController: UIViewController {
             toolBar.isUserInteractionEnabled = true
             view.addSubview(toolBar)
         }
+        titleLabel.text = "login".localized
+        promptLabel.text = "insert_your_age".localized
+        insertAgeTextField.placeholder = "age_here".localized
+        submitButton.setTitle("submit".localized, for: .normal)
     }
     
     @objc func doneButtonTapped() {

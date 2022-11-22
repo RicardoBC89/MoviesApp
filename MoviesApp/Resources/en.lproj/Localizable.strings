@@ -8,3 +8,10 @@
 "unexpected" = "Unexpected error, don't know what happend, better luck in the next life";
 "ok" = "OK";
 "error" = "Error";
+"movie_list_screen_title" = "Popular Movies, Enjoy";
+"login" = "Login";
+"insert_your_age" = "Insert your Age";
+"age_here" = "age here";
+"submit" = "Submit";
+"done" = "Done";
+
