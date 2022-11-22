@@ -10,7 +10,7 @@ import SwiftUI
 
 class LoginViewController: UIViewController {
     private let viewModel: LoginViewModel
-    var toolBar: UIToolbar?
+    private var toolBar: UIToolbar?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var insertAgeTextField: UITextField!
