@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftyUserDefaults
 
 protocol UserRepositoryProtocol {
     func getUser() -> User?
