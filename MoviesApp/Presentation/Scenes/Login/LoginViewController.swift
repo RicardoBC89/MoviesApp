@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     }
    
     private let ageList: [Int] = Array<Int>((1...120))
-    var selectedAge: Int?
+    private var selectedAge: Int?
     
     init(viewModel: LoginViewModel) {
         self.viewModel = viewModel
