@@ -13,7 +13,7 @@ protocol UserRepositoryProtocol {
 }
 
 final class UserRepository: UserRepositoryProtocol {
-    var userCacheDataSource: UserCacheDataSourceProtocol
+    private let userCacheDataSource: UserCacheDataSourceProtocol
     
     init(userCacheDataSource: UserCacheDataSourceProtocol = UserCacheDataSource()) {
         self.userCacheDataSource = userCacheDataSource
