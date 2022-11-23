@@ -6,20 +6,23 @@ final class MoviesListViewModel {
     private let lastPage = 500
     private(set) var paginaAtual: Int = 1
     private let getMoviesUseCase: GetMoviesUseCaseProtocol
-
+    private var paginaAnterior: Int = 0
+    
     init(getMoviesUseCase: GetMoviesUseCaseProtocol = GetMoviesUseCase()) {
         self.getMoviesUseCase = getMoviesUseCase
     }
 
     func fetchMovies(pagina: Int) {
-        guard pagina <= lastPage else { return }
+        guard pagina <= lastPage, pagina != paginaAnterior else { return }
+        paginaAnterior = pagina
+        if let error = errorObservable.value as? NetworkError, error == .noMorePages { return }
         isLoading.value = true
         getMoviesUseCase.execute(pagina: pagina, viewModelCompletionHandler: { [weak self] movies, error in
-            self?.isLoading.value = false
             if let error = error {
                 self?.errorObservable.value = error
             }
             self?.movies.value += movies
+            self?.isLoading.value = false
         })
     }
 

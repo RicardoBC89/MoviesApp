@@ -1,6 +1,7 @@
 import Foundation
+import SwiftyUserDefaults
 
-struct Movie: Decodable {
+struct Movie: Codable {
     var titulo: String
     var ano: String
     let caminhoIMG: String
@@ -20,3 +21,5 @@ struct Movie: Decodable {
         case adult = "adult"
     }
 }
+
+extension Movie: DefaultsSerializable {}
