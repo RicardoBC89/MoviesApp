@@ -1,25 +1,32 @@
 import SwiftyUserDefaults
 
 final class MoviesCacheDataSource {
+    private let currentKey: DefaultsKey<[Movie]?>
+    
+    init(key: DefaultsKey<[Movie]?> = DefaultsKeys.moviesInCache) {
+        currentKey = key
+    }
+    
     func getMovies() -> [Movie] {
-        Defaults[key: DefaultsKeys.moviesInCache] ?? []
+        Defaults[key: currentKey] ?? []
     }
     
     func saveCache(movies: [Movie]) {
-        if Defaults[key: DefaultsKeys.moviesInCache] != nil {
+        if Defaults[key: currentKey] != nil {
             for movie in movies {
-                Defaults[key: DefaultsKeys.moviesInCache]?.append(movie)
+                Defaults[key: currentKey]?.append(movie)
             }
         } else {
-            Defaults[key: DefaultsKeys.moviesInCache] = movies
+            Defaults[key: currentKey] = movies
         }
     }
     
     func deleteCache() {
-      Defaults.remove(DefaultsKeys.moviesInCache)
+      Defaults.remove(currentKey)
     }
 }
 
 extension DefaultsKeys {
     static let moviesInCache = DefaultsKey<[Movie]?>("MoviesInCache")
+    static let moviesInCacheTest = DefaultsKey<[Movie]?>("MoviesInCacheTest")
 }

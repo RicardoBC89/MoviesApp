@@ -36,6 +36,7 @@
 		CEAC7849292D128E00EB3D16 /* UserRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */; };
 		CEAC784B292D13DE00EB3D16 /* UserCacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC784A292D13DE00EB3D16 /* UserCacheDataSource.swift */; };
 		CEAC784D292D154800EB3D16 /* MockUserCacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC784C292D154800EB3D16 /* MockUserCacheDataSource.swift */; };
+		CEAD2DE0292FA712005B0403 /* MoviesCacheDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD2DDF292FA712005B0403 /* MoviesCacheDataSourceTests.swift */; };
 		CEADE48129155252007E4862 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEADE48029155252007E4862 /* NetworkServiceTests.swift */; };
 		CEAE83C0291BEFCA0005DB3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83BF291BEFCA0005DB3A /* User.swift */; };
 		CEAE83C2291BF0B40005DB3A /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE83C1291BF0B40005DB3A /* UserRepository.swift */; };
@@ -102,6 +103,7 @@
 		CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTest.swift; sourceTree = "<group>"; };
 		CEAC784A292D13DE00EB3D16 /* UserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCacheDataSource.swift; sourceTree = "<group>"; };
 		CEAC784C292D154800EB3D16 /* MockUserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserCacheDataSource.swift; sourceTree = "<group>"; };
+		CEAD2DDF292FA712005B0403 /* MoviesCacheDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCacheDataSourceTests.swift; sourceTree = "<group>"; };
 		CEADE48029155252007E4862 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		CEAE83BF291BEFCA0005DB3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEAE83C1291BF0B40005DB3A /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
@@ -332,8 +334,8 @@
 		CE77173F28F4D7C8007A5FC2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				CE056CE428EE4B3400598603 /* Assets.xcassets */,
 				CE056CE628EE4B3400598603 /* LaunchScreen.storyboard */,
+				CE056CE428EE4B3400598603 /* Assets.xcassets */,
 				CE056CE928EE4B3400598603 /* Info.plist */,
 				CEEDAB962906D26A003540DE /* Localizable.strings */,
 			);
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */,
+				CEAD2DDF292FA712005B0403 /* MoviesCacheDataSourceTests.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -667,6 +670,7 @@
 				CE03D08328F8574100FD66E9 /* MockMoviesRepository.swift in Sources */,
 				CE811A0E292BC7C800898B9D /* MockSaveUserUseCase.swift in Sources */,
 				CE811A0C292BC71500898B9D /* LoginViewModelTests.swift in Sources */,
+				CEAD2DE0292FA712005B0403 /* MoviesCacheDataSourceTests.swift in Sources */,
 				CE24DD93291D385F0004310A /* MockGetMoviesUseCase.swift in Sources */,
 				CEAC7849292D128E00EB3D16 /* UserRepositoryTest.swift in Sources */,
 			);

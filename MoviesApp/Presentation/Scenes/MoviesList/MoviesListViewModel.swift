@@ -27,7 +27,9 @@ final class MoviesListViewModel {
     }
 
     func nextPage() {
-        paginaAtual += 1
-        fetchMovies(pagina: paginaAtual)
+        if !isLoading.value {
+            paginaAtual += 1
+            fetchMovies(pagina: paginaAtual)
+        }
     }
 }

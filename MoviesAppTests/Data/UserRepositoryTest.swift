@@ -8,7 +8,7 @@
 import XCTest
 @testable import MoviesApp
 
-class UserRepositoryTest: XCTestCase {
+final class UserRepositoryTest: XCTestCase {
    private var userRepository: UserRepository!
    private var mockUserCacheDataSource: MockUserCacheDataSource!
     
