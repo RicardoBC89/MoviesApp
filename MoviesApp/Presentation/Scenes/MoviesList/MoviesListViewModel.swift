@@ -6,6 +6,7 @@ final class MoviesListViewModel {
     private let lastPage = 500
     private(set) var paginaAtual: Int = 1
     private let getMoviesUseCase: GetMoviesUseCaseProtocol
+    var isFetchingNextPage: Bool = false
 
     init(getMoviesUseCase: GetMoviesUseCaseProtocol = GetMoviesUseCase()) {
         self.getMoviesUseCase = getMoviesUseCase
@@ -14,7 +15,9 @@ final class MoviesListViewModel {
     func fetchMovies(pagina: Int) {
         guard pagina <= lastPage else { return }
         isLoading.value = true
+        isFetchingNextPage = true
         getMoviesUseCase.execute(pagina: pagina, viewModelCompletionHandler: { [weak self] movies, error in
+            isFetchingNextPage = false
             self?.isLoading.value = false
             if let error = error {
                 self?.errorObservable.value = error
@@ -24,7 +27,10 @@ final class MoviesListViewModel {
     }
 
     func nextPage() {
-        paginaAtual += 1
-        fetchMovies(pagina: paginaAtual)
+        if !isFetchingNextPage {
+            paginaAtual += 1
+            fetchMovies(pagina: paginaAtual)
+        }
+            
     }
 }
