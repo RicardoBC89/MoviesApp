@@ -6,7 +6,7 @@ final class MoviesListViewModel {
     private let lastPage = 500
     private(set) var paginaAtual: Int = 1
     private let getMoviesUseCase: GetMoviesUseCaseProtocol
-    var isFetchingNextPage: Bool = false
+    private var isFetchingNextPage: Bool = false
 
     init(getMoviesUseCase: GetMoviesUseCaseProtocol = GetMoviesUseCase()) {
         self.getMoviesUseCase = getMoviesUseCase
