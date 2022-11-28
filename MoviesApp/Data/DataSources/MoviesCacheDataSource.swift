@@ -1,6 +1,12 @@
 import SwiftyUserDefaults
 
-final class MoviesCacheDataSource {
+protocol MoviesCacheDataSourceProtocol {
+    func getMovies() -> [Movie]
+    func saveCache(movies: [Movie])
+    func deleteCache()
+}
+
+final class MoviesCacheDataSource: MoviesCacheDataSourceProtocol {
     private let currentKey: DefaultsKey<[Movie]?>
     
     init(key: DefaultsKey<[Movie]?> = DefaultsKeys.moviesInCache) {

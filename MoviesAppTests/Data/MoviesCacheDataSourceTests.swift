@@ -28,6 +28,7 @@ class MoviesCacheDataSourceTests: XCTestCase {
         // Assert
         XCTAssertEqual(moviesSaved, moviesToBeSaved)
         XCTAssertEqual(moviesSaved.count, moviesToBeSaved.count)
+        moviesCacheDataSource.deleteCache()
     }
     
     func testIfDeletedCacheAreDeleted() {
@@ -44,6 +45,7 @@ class MoviesCacheDataSourceTests: XCTestCase {
         // Assert
         XCTAssertEqual(moviesSaved, [])
         XCTAssertEqual(moviesSaved.count, 0)
+        moviesCacheDataSource.deleteCache()
     }
     
     func testIfTowPagesAreSaved() {
@@ -63,5 +65,6 @@ class MoviesCacheDataSourceTests: XCTestCase {
         XCTAssertEqual(moviesToBeSaved.count + moviesToBeSaved2.count, moviesSaved.count)
         XCTAssertTrue(page1.allSatisfy(moviesSaved.contains))
         XCTAssertTrue(page2.allSatisfy(moviesSaved.contains))
+        moviesCacheDataSource.deleteCache()
     }
 }

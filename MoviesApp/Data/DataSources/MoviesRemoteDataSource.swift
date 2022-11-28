@@ -1,6 +1,10 @@
 import Accelerate
 
-final class MoviesRemoteDataSource {
+protocol MoviesRemoteDataSourceProtocol {
+    func getMovies(pagina: Int, moviesRepositoryCompletionHandler: @escaping([Movie], Error?) -> Void)
+}
+
+final class MoviesRemoteDataSource: MoviesRemoteDataSourceProtocol {
     private let service = NetworkService()
     
     func getMovies(pagina: Int, moviesRepositoryCompletionHandler: @escaping([Movie], Error?) -> Void) {
