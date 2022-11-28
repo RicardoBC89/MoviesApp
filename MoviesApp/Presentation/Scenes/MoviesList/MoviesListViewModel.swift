@@ -17,7 +17,7 @@ final class MoviesListViewModel {
         isLoading.value = true
         isFetchingNextPage = true
         getMoviesUseCase.execute(pagina: pagina, viewModelCompletionHandler: { [weak self] movies, error in
-            isFetchingNextPage = false
+            self?.isFetchingNextPage = false
             self?.isLoading.value = false
             if let error = error {
                 self?.errorObservable.value = error
