@@ -56,7 +56,7 @@ final class MoviesListViewController: EmptyStateDisplayable {
             self.moviesListTableView.reloadData()
         }
         viewModel.errorObservable.observe(on: self) { error in
-            guard let error = error as? NetworkError else {return}
+            guard let error = error as? NetworkError, error != .noMorePages else {return}
             let action = UIAlertAction(title: "ok".localized, style: .default, handler: nil)
             let popUp = UIAlertController(title: "error".localized, message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
             popUp.addAction(action)

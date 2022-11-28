@@ -14,6 +14,7 @@ enum NetworkError: Error {
     case internalServerError
     case unexpected
     case badRequest
+    case noMorePages
 }
 
 extension NetworkError {
@@ -29,6 +30,7 @@ extension NetworkError {
             return "server_error".localized
         case .unexpected, .badRequest:
             return "unexpected".localized
+        default: return ""
         }
     }
 }
