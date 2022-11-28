@@ -17,6 +17,7 @@ final class MoviesListViewModel {
         paginaAnterior = pagina
         if let error = errorObservable.value as? NetworkError, error == .noMorePages { return }
         isLoading.value = true
+        isFetchingNextPage = true
         getMoviesUseCase.execute(pagina: pagina, viewModelCompletionHandler: { [weak self] movies, error in
             if let error = error {
                 self?.errorObservable.value = error
