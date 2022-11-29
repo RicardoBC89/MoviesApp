@@ -43,6 +43,7 @@ final class MoviesListViewController: EmptyStateDisplayable {
         super.viewWillAppear(animated)
         navigationItem.setHidesBackButton(true, animated: false)
         title = "movie_list_screen_title".localized
+        navigationItem.accessibilityLabel = "Message on top"
     }
     
     func setUpBindings() {

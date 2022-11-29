@@ -11,6 +11,7 @@ import SwiftUI
 class LoginViewController: UIViewController {
     private let viewModel: LoginViewModel
     private var toolBar: UIToolbar?
+    private let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneButtonTapped))
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var insertAgeTextField: UITextField!
@@ -47,7 +48,6 @@ class LoginViewController: UIViewController {
         insertAgeTextField.inputView = agePickerView
         agePickerView.isHidden = true
         agePickerView.clipsToBounds = false
-        let doneButton = UIBarButtonItem(title: "done".localized, style: .plain, target: self, action: #selector(doneButtonTapped))
         toolBar = UIToolbar()
         if let toolBar = toolBar {
             toolBar.isHidden = true
@@ -61,6 +61,7 @@ class LoginViewController: UIViewController {
         promptLabel.text = "insert_your_age".localized
         insertAgeTextField.placeholder = "age_here".localized
         submitButton.setTitle("submit".localized, for: .normal)
+        setUpAccessibilityLabels()
     }
     
     @objc func doneButtonTapped() {
@@ -72,6 +73,14 @@ class LoginViewController: UIViewController {
         agePickerView.isHidden = true
         toolBar?.isHidden = true
         insertAgeTextField.layer.borderWidth = 0
+    }
+    
+    private func setUpAccessibilityLabels() {
+        submitButton.accessibilityLabel = "Submit"
+        insertAgeTextField.accessibilityLabel = "Age here"
+        agePickerView.accessibilityLabel = "Age picker"
+        doneButton.accessibilityLabel = "Done"
+        toolBar?.accessibilityLabel = "Tool bar"
     }
 }
 
