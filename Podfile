@@ -15,3 +15,9 @@ target 'MoviesApp' do
   end
 
 end
+
+target 'MoviesAppSnapshotTests' do
+  inherit! :search_paths
+  # Pods for testing
+  pod 'SnapshotTesting'
+end
