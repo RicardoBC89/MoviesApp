@@ -131,6 +131,8 @@
 		CE88B89F29363DCE0024C79C /* MoviesAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoviesAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE88B8A129363DCE0024C79C /* MoviesAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAppUITests.swift; sourceTree = "<group>"; };
 		CE88B8A329363DCE0024C79C /* MoviesAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE88B8AA2936484C0024C79C /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		CE88B8AB29364A260024C79C /* MoviesApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MoviesApp.xctestplan; sourceTree = "<group>"; };
 		CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTest.swift; sourceTree = "<group>"; };
 		CEAC784A292D13DE00EB3D16 /* UserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCacheDataSource.swift; sourceTree = "<group>"; };
 		CEAC784C292D154800EB3D16 /* MockUserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserCacheDataSource.swift; sourceTree = "<group>"; };
@@ -433,6 +435,8 @@
 			isa = PBXGroup;
 			children = (
 				CE88B8A129363DCE0024C79C /* MoviesAppUITests.swift */,
+				CE88B8AA2936484C0024C79C /* TestPlan.xctestplan */,
+				CE88B8AB29364A260024C79C /* MoviesApp.xctestplan */,
 				CE88B8A329363DCE0024C79C /* MoviesAppUITestsLaunchTests.swift */,
 			);
 			path = MoviesAppUITests;

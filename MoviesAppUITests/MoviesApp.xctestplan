@@ -1,0 +1,50 @@
+{
+  "configurations" : [
+    {
+      "id" : "51075C29-3B73-410B-9061-12E7172FA228",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "ClearCacheOnStart"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MoviesApp.xcodeproj",
+      "identifier" : "CE056CD728EE4B2D00598603",
+      "name" : "MoviesApp"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:MoviesApp.xcodeproj",
+        "identifier" : "CE056CED28EE4B3400598603",
+        "name" : "MoviesAppTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:MoviesApp.xcodeproj",
+        "identifier" : "CE88B89129362A900024C79C",
+        "name" : "MoviesAppSnapshotTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:MoviesApp.xcodeproj",
+        "identifier" : "CE88B89E29363DCE0024C79C",
+        "name" : "MoviesAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
