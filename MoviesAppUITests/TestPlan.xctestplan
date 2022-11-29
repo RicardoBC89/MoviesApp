@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "806BDD52-5C76-443F-ABC6-E5420886C9AD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "ClearCacheOnStart"
+      }
+    ],
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:MoviesApp.xcodeproj",
+        "identifier" : "CE88B89E29363DCE0024C79C",
+        "name" : "MoviesAppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

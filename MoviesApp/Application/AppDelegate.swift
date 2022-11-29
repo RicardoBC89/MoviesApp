@@ -11,6 +11,10 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if CommandLine.arguments.contains("ClearCacheOnStart") {
+            let userDataSource = UserCacheDataSource()
+            userDataSource.deleteUserCache()
+        }
         // Override point for customization after application launch.
         return true
     }

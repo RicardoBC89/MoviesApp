@@ -16,6 +16,10 @@ final class UserCacheDataSource: UserCacheDataSourceProtocol {
     func saveUser(user: User) {
         Defaults[key: DefaultsKeys.loggedInUser] = user
     }
+    
+    func deleteUserCache() {
+      Defaults.remove(DefaultsKeys.loggedInUser)
+    }
 }
 
 extension DefaultsKeys {
