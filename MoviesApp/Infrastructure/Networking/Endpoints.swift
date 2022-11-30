@@ -7,6 +7,16 @@
 
 import Foundation
 
-enum Endpoints: String {
-    case popular = "/popular"
+enum Endpoints {
+    case popular
+    case movieDetails(movieId: Int)
+    
+    var rawValue: String {
+        switch self {
+        case .popular:
+            return "/popular"
+        case .movieDetails(let movieID):
+            return "/movie/" + String(movieID)
+        }
+    }
 }

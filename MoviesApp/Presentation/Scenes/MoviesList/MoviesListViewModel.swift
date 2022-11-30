@@ -1,6 +1,6 @@
 import Foundation
 final class MoviesListViewModel {
-    var movies: Observable<[Movie]> = Observable([])
+    var moviesObservable: Observable<[Movie]> = Observable([])
     var isLoading: Observable<Bool> = Observable(false)
     var errorObservable: Observable<Error?> = Observable(nil)
     private let lastPage = 500
@@ -21,7 +21,7 @@ final class MoviesListViewModel {
             if let error = error {
                 self?.errorObservable.value = error
             }
-            self?.movies.value += movies
+            self?.moviesObservable.value += movies
             self?.isLoading.value = false
         })
     }
