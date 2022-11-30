@@ -41,7 +41,7 @@ final class NetworkService {
             }
             let decoder = JSONDecoder()
             guard let response = try? decoder.decode(T.self, from: data) else {
-                self?.errorLogger.log(error: NetworkError.JSONParsingError)
+                self?.errorLogger.log(error: InfrastructureError.JSONParsingError(debugDescription: response.debugDescription))
                 return
             }
             serviceCompletionHandler(response, nil)

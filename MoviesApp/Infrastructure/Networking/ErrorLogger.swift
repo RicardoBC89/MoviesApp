@@ -10,7 +10,11 @@ import Foundation
 class ErrorLogger {
     func log(error: Error) {
         #if DEBUG
-        print(error)
+        switch error {
+        case InfrastructureError.JSONParsingError(let debugDescription):
+            print(debugDescription)
+        default: print(error)
+        }
         #endif
     }
 }

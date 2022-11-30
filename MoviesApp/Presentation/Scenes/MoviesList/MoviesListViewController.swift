@@ -47,7 +47,7 @@ final class MoviesListViewController: EmptyStateDisplayable {
     }
     
     func setUpBindings() {
-        viewModel.movies.observe(on: self) { [weak self] movies in
+        viewModel.moviesObservable.observe(on: self) { [weak self] movies in
             guard let self = self else { return }
             if movies.isEmpty {
                 self.showEmptyState()
@@ -56,16 +56,17 @@ final class MoviesListViewController: EmptyStateDisplayable {
             }
             self.moviesListTableView.reloadData()
         }
-        viewModel.errorObservable.observe(on: self) { error in
-            guard let error = error as? NetworkError, error != .noMorePages else {return}
+        viewModel.errorObservable.observe(on: self) { e in
+            if let networkError = e as? NetworkError, networkError == .noMorePages {return}
+            guard let error = e as? BaseError else {return}
             let action = UIAlertAction(title: "ok".localized, style: .default, handler: nil)
-            let popUp = UIAlertController(title: "error".localized, message: error.errorDescripition, preferredStyle: UIAlertController.Style.alert)
+            let popUp = UIAlertController(title: "error".localized, message: error.errorDescription, preferredStyle: UIAlertController.Style.alert)
             popUp.addAction(action)
             self.present(popUp, animated: true, completion: nil)
         }
         viewModel.isLoading.observe(on: self) { [weak self] shouldShowLoading in
             guard let self = self else { return }
-            if shouldShowLoading, self.viewModel.movies.value.isEmpty {
+            if shouldShowLoading, self.viewModel.moviesObservable.value.isEmpty {
                 LoadingOverlay.shared.showOverlay(view: self.view)
             } else {
                 LoadingOverlay.shared.hideOverlayView()
@@ -76,18 +77,25 @@ final class MoviesListViewController: EmptyStateDisplayable {
 
 extension MoviesListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.movies.value.count
+        viewModel.moviesObservable.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let movieCell = tableView.dequeueReusableCell(withIdentifier: MoviesItemTableViewCell.reuseIdentifier) as? MoviesItemTableViewCell else {
             return UITableViewCell()
         }
-        let movieAtual = viewModel.movies.value[indexPath.row]
+        let movieAtual = viewModel.moviesObservable.value[indexPath.row]
         movieCell.adicionarInformacaoMovie(titulo: movieAtual.titulo, ano: movieAtual.ano, caminhoIMG: movieAtual.caminhoIMG)
-        if indexPath.row == viewModel.movies.value.count - 5 {
+        if indexPath.row == viewModel.moviesObservable.value.count - 5 {
             viewModel.nextPage()
         }
         return movieCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let moviesList = viewModel.moviesObservable.value
+        let selectedMovie = moviesList[indexPath.row]
+        let viewController = MovieDetailsViewController(movieId: selectedMovie.id)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -43,8 +43,8 @@ final class MoviesListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 5)
 
         // Assert
-        XCTAssertEqual(viewModel.movies.value.count, page1.count)
-        XCTAssertEqual(viewModel.movies.value, page1)
+        XCTAssertEqual(viewModel.moviesObservable.value.count, page1.count)
+        XCTAssertEqual(viewModel.moviesObservable.value, page1)
     }
     
     func testIfTwoPagesAreRequestedThenViewModelContainsTwoPages()  {
@@ -64,8 +64,8 @@ final class MoviesListViewModelTests: XCTestCase {
 
         // Assert
         let allPages = page1 + page2
-        XCTAssertEqual(viewModel.movies.value.count, allPages.count)
-        XCTAssertEqual(viewModel.movies.value, allPages)
+        XCTAssertEqual(viewModel.moviesObservable.value.count, allPages.count)
+        XCTAssertEqual(viewModel.moviesObservable.value, allPages)
         XCTAssertEqual(viewModel.paginaAtual, 2)
     }
     
