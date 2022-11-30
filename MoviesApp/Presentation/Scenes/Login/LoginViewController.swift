@@ -24,15 +24,16 @@ class LoginViewController: UIViewController {
             return
             }
         viewModel.saveUser(age: text)
-        navigationController?.pushViewController(MoviesListViewController(viewModel: MoviesListViewModel()), animated: true)
-      //  if insertAgeTextField.text > 21
+        coordinator.navigateToMoviesList()
     }
    
     private let ageList: [Int] = Array<Int>((1...120))
     private var selectedAge: Int?
+    private let coordinator: AppCoordinator
     
-    init(viewModel: LoginViewModel) {
+    init(viewModel: LoginViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     

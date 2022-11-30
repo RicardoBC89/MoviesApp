@@ -41,6 +41,7 @@
 		CE88B8A429363DCE0024C79C /* MoviesAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88B8A329363DCE0024C79C /* MoviesAppUITestsLaunchTests.swift */; };
 		CE9E800729379641002A4634 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E800529379641002A4634 /* MovieDetailsViewController.swift */; };
 		CE9E800829379641002A4634 /* MovieDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9E800629379641002A4634 /* MovieDetailsViewController.xib */; };
+		CE9E800A2937A22E002A4634 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E80092937A22E002A4634 /* AppCoordinator.swift */; };
 		CEAC7849292D128E00EB3D16 /* UserRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */; };
 		CEAC784B292D13DE00EB3D16 /* UserCacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC784A292D13DE00EB3D16 /* UserCacheDataSource.swift */; };
 		CEAC784D292D154800EB3D16 /* MockUserCacheDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAC784C292D154800EB3D16 /* MockUserCacheDataSource.swift */; };
@@ -137,6 +138,7 @@
 		CE88B8AB29364A260024C79C /* MoviesApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MoviesApp.xctestplan; sourceTree = "<group>"; };
 		CE9E800529379641002A4634 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		CE9E800629379641002A4634 /* MovieDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailsViewController.xib; sourceTree = "<group>"; };
+		CE9E80092937A22E002A4634 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		CEAC7848292D128E00EB3D16 /* UserRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTest.swift; sourceTree = "<group>"; };
 		CEAC784A292D13DE00EB3D16 /* UserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCacheDataSource.swift; sourceTree = "<group>"; };
 		CEAC784C292D154800EB3D16 /* MockUserCacheDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserCacheDataSource.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				CE056CDB28EE4B2E00598603 /* AppDelegate.swift */,
 				CE056CDD28EE4B2E00598603 /* SceneDelegate.swift */,
 				CED23AB229082DD600245CD8 /* AppConfigurations.swift */,
+				CE9E80092937A22E002A4634 /* AppCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -806,6 +809,7 @@
 				CED06A1E28F63C9800F73255 /* Observable.swift in Sources */,
 				CE0BDAF628F703B300BF24EA /* MoviesRemoteDataSource.swift in Sources */,
 				CE03D07F28F8569500FD66E9 /* MoviesRepositoryProtocol.swift in Sources */,
+				CE9E800A2937A22E002A4634 /* AppCoordinator.swift in Sources */,
 				CE0BDAFB28F703E900BF24EA /* MoviesRepository.swift in Sources */,
 				CE0BDAF928F703CE00BF24EA /* MoviesCacheDataSource.swift in Sources */,
 				CEE310D529030CF000C9164F /* EmptyStateView.swift in Sources */,

@@ -16,10 +16,11 @@ final class MoviesListViewController: EmptyStateDisplayable {
     @IBOutlet weak var moviesListTableView: UITableView!
     
     private let viewModel: MoviesListViewModel
+    private let coordinator: AppCoordinator
     
-    
-    init(viewModel: MoviesListViewModel) {
+    init(viewModel: MoviesListViewModel, coordinator: AppCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -95,7 +96,6 @@ extension MoviesListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let moviesList = viewModel.moviesObservable.value
         let selectedMovie = moviesList[indexPath.row]
-        let viewController = MovieDetailsViewController(movieId: selectedMovie.id)
-        navigationController?.pushViewController(viewController, animated: true)
+        coordinator.navigateToMovieDetails(movieId: selectedMovie.id)
     }
 }

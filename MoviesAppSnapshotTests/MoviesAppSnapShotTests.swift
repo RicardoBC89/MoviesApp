@@ -15,7 +15,7 @@ final class MoviesAppSnapshotTests: XCTestCase {
                                                       "iPhoneXsMax": .iPhoneXsMax]
     
     func testLoginViewController() {
-        let viewController: LoginViewController = LoginViewController(viewModel: LoginViewModel())
+        let viewController: LoginViewController = LoginViewController(viewModel: LoginViewModel(), coordinator: MockAppCoordinator())
         let navagationController = UINavigationController(rootViewController: viewController)
         for device in devices {
             assertSnapshot(matching: navagationController,
@@ -28,7 +28,7 @@ final class MoviesAppSnapshotTests: XCTestCase {
     func testMoviesListViewController() {
         let mockGetMoviesUseCase = MockGetMoviesUseCase()
         let viewModel = MoviesListViewModel(getMoviesUseCase: mockGetMoviesUseCase)
-        let viewController = MoviesListViewController(viewModel: viewModel)
+        let viewController = MoviesListViewController(viewModel: viewModel, coordinator: MockAppCoordinator())
         let navagationController = UINavigationController(rootViewController: viewController)
         mockGetMoviesUseCase.mockMovies = [
             Movie(titulo: "Superman", ano: "2020", caminhoIMG: ""),
@@ -58,3 +58,22 @@ final class MockGetMoviesUseCase: GetMoviesUseCaseProtocol {
         }
     }
 }
+
+final class MockAppCoordinator: AppCoordinator {
+    init() {
+        super.init(navigationController: UINavigationController())
+    }
+    
+    override func start() {
+    }
+    
+    override func navigateToMoviesList() {
+    }
+    
+    override func navigateToMovieDetails(movieId: Int) {
+    }
+    
+    override func navigateToLogin() {
+    }
+}
+
