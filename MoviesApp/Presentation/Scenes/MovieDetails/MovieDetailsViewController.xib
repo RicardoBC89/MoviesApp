@@ -10,7 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieDetailsViewController" customModule="MoviesApp" customModuleProvider="target">
             <connections>
+                <outlet property="backDropImageView" destination="Rtn-8j-3zl" id="L3T-xh-Jas"/>
                 <outlet property="movieIdLabel" destination="DwZ-66-Btb" id="nB6-ct-bgU"/>
+                <outlet property="originalTitleLable" destination="8n3-XR-Tdw" id="e6Z-U4-WLv"/>
+                <outlet property="releseDateLabel" destination="2u8-3Z-8cg" id="0Z9-DK-5ca"/>
+                <outlet property="summaryLabel" destination="wMD-LJ-QF5" id="trR-gU-j0e"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,8 +23,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-66-Btb">
-                    <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DwZ-66-Btb">
+                    <rect key="frame" x="188" y="120" width="38" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Original title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8n3-XR-Tdw">
+                    <rect key="frame" x="30" y="154" width="87.5" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rtn-8j-3zl">
+                    <rect key="frame" x="10" y="182" width="394" height="128"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMD-LJ-QF5">
+                    <rect key="frame" x="30" y="322" width="65" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Relese date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2u8-3Z-8cg">
+                    <rect key="frame" x="163" y="153" width="89" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -29,10 +55,17 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="DwZ-66-Btb" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="7h7-AW-8Ro"/>
-                <constraint firstItem="DwZ-66-Btb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="emw-vX-mvl"/>
+                <constraint firstItem="wMD-LJ-QF5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="1Iq-tr-ZEb"/>
+                <constraint firstItem="Rtn-8j-3zl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="4gl-6H-LQk"/>
+                <constraint firstItem="DwZ-66-Btb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="120" id="Hev-IU-Dw0"/>
+                <constraint firstItem="DwZ-66-Btb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PJg-Ct-tTf"/>
+                <constraint firstItem="8n3-XR-Tdw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Tao-zT-mrb"/>
+                <constraint firstItem="8n3-XR-Tdw" firstAttribute="top" secondItem="DwZ-66-Btb" secondAttribute="bottom" constant="10" id="ZVI-Y0-Hrb"/>
+                <constraint firstItem="wMD-LJ-QF5" firstAttribute="top" secondItem="Rtn-8j-3zl" secondAttribute="bottom" constant="20" id="eTV-ah-lv2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Rtn-8j-3zl" secondAttribute="trailing" constant="10" id="pKB-HU-aLQ"/>
+                <constraint firstItem="Rtn-8j-3zl" firstAttribute="top" secondItem="8n3-XR-Tdw" secondAttribute="bottom" constant="30" id="qT9-Bb-c4i"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="49"/>
+            <point key="canvasLocation" x="131.8840579710145" y="48.883928571428569"/>
         </view>
     </objects>
     <resources>

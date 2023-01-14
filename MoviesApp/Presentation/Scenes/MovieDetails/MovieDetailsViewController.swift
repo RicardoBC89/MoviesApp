@@ -9,6 +9,11 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
 
+    @IBOutlet weak var originalTitleLable: UILabel!
+    
+    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var backDropImageView: UIImageView!
+    @IBOutlet weak var releseDateLabel: UILabel!
     @IBOutlet weak var movieIdLabel: UILabel!
     private let movieId: String
     
